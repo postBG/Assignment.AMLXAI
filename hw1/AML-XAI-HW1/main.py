@@ -31,7 +31,7 @@ def main():
     torch.manual_seed(args.seed)
     torch.backends.cudnn.deterministic = True
     device = torch.device(args.device)
-    # torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.benchmark = False
 
     if not os.path.isdir('dat'):
         print('Make directory for dataset')
