@@ -1,4 +1,4 @@
-python3 main.py --trainer vanilla --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 3 --lamb 10
+python3 main.py --trainer vanilla --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 3 --lamb 0
 python3 main.py --trainer l2 --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 3 --lamb 0.1
 python3 main.py --trainer l2 --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 3 --lamb 0.5
 python3 main.py --trainer l2 --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 3 --lamb 1
