@@ -1,8 +1,32 @@
 import torch
+import torch.nn as nn
 import torch.utils.data as td
 from tqdm import tqdm
 
 import trainer
+
+
+def _init_fisher(model):
+    diag_fisher = {}
+    for name, param in model.named_parameters():
+        diag_fisher[name] = param.clone().detach().fill_(0)
+    return diag_fisher
+
+
+def _get_named_params(model):
+    params = {}
+    for name, param in model.named_parameters():
+        params[name] = param
+    return params
+
+
+def reg_loss(model, prev_model, importance):
+    prev_params = _get_named_params(prev_model)
+    loss = 0
+    for name, param in model.named_parameters():
+        loss += (importance[name] * (param - prev_params[name]) ** 2).sum()
+    print("FUccccck", loss)
+    return loss
 
 
 class Trainer(trainer.GenericTrainer):
@@ -10,6 +34,9 @@ class Trainer(trainer.GenericTrainer):
         super().__init__(model, args, optimizer, evaluator, task_info)
 
         self.lamb = args.lamb
+        self.fisher = _init_fisher(self.model)
+        print(self.fisher['conv1.weight'])
+        self.ce_loss = nn.CrossEntropyLoss()
 
     def train(self, train_loader, test_loader, t, device=None):
 
@@ -31,20 +58,17 @@ class Trainer(trainer.GenericTrainer):
         for epoch in range(self.args.nepochs):
             self.model.train()
             self.update_lr(epoch, self.args.schedule)
-            for samples in tqdm(self.train_iterator):
-                data, target = samples
+            for data, target in tqdm(self.train_iterator):
                 data, target = data.to(device), target.to(device)
-                batch_size = data.shape[0]
 
                 output = self.model(data)[t]
                 loss_CE = self.criterion(output, target)
 
                 self.optimizer.zero_grad()
-                (loss_CE).backward()
+                loss_CE.backward()
                 self.optimizer.step()
 
             train_loss, train_acc = self.evaluator.evaluate(self.model, self.train_iterator, t, self.device)
-            num_batch = len(self.train_iterator)
             print('| Epoch {:3d} | Train: loss={:.3f}, acc={:5.1f}% |'.format(epoch + 1, train_loss, 100 * train_acc),
                   end='')
             test_loss, test_acc = self.evaluator.evaluate(self.model, self.test_iterator, t, self.device)
@@ -58,12 +82,7 @@ class Trainer(trainer.GenericTrainer):
         
         For the hyperparameter on regularization, please use self.lamb
         """
-
-        #######################################################################################
-
-        # Write youre code here
-
-        #######################################################################################
+        return self.ce_loss(output, targets) + self.lamb * reg_loss(self.model, self.model_fixed, self.fisher)
 
     def compute_diag_fisher(self):
         """
@@ -73,11 +92,20 @@ class Trainer(trainer.GenericTrainer):
         This function will be used in the function 'update_fisher'
         """
 
-        #######################################################################################
+        diag_fisher = _init_fisher(self.model_fixed)
 
-        # Write youre code here
+        self.model.eval()
+        for data, target in self.fisher_iterator:
+            data, target = data.to(self.device), target.to(self.device)
 
-        #######################################################################################        
+            output = self.model(data)[self.t]
+            loss = self.ce_loss(output, target)
+            loss.backward()
+
+            for name, param in self.model.named_parameters():
+                diag_fisher[name].data += param.grad.data ** 2 / len(self.fisher_iterator)
+
+        return diag_fisher
 
     def update_fisher(self):
 
@@ -86,9 +114,6 @@ class Trainer(trainer.GenericTrainer):
         Return: None. Just update the global variable self.fisher
         Use 'compute_diag_fisher' to compute the fisher matrix
         """
-
-        #######################################################################################
-
-        # Write youre code here
-
-        #######################################################################################
+        recent_task_fisher = self.compute_diag_fisher()
+        for name, value in recent_task_fisher.items():
+            self.fisher[name].data += value.data
