@@ -10,7 +10,6 @@ class Trainer(trainer.GenericTrainer):
     def __init__(self, model, args, optimizer, evaluator, taskcla):
         super().__init__(model, args, optimizer, evaluator, taskcla)
 
-        self.lamb = args.lamb
         self.ce_loss = nn.CrossEntropyLoss()
 
     def train(self, train_loader, test_loader, t, device=None):
