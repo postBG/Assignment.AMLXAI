@@ -1,29 +1,25 @@
-import sys, os, time
-import numpy as np
-import torch.nn as nn
-import torch.nn.init as init
-import torch.nn.functional as F
-import torch.optim as optim
-
-import pickle
-import torch
-from arguments import get_args
+import os
 import random
-import utils
+
+import numpy as np
+import torch
+from sklearn.utils import shuffle
 
 import data_handler
-from sklearn.utils import shuffle
-import trainer
 import networks
+import trainer
+import utils
+from arguments import get_args
+
 
 # Arguments
 def main():
     args = get_args()
 
     #########################################################################################################################
-    
-    log_name = '{}_{}_{}_{}_lamb_{}_lr_{}_batch_{}_epoch_{}'.format(args.date, args.dataset, args.trainer,args.seed, 
-                                                                           args.lamb, args.lr, args.batch_size, args.nepochs)
+
+    log_name = '{}_{}_{}_{}_lamb_{}_lr_{}_batch_{}_epoch_{}'.format(args.date, args.dataset, args.trainer, args.seed,
+                                                                    args.lamb, args.lr, args.batch_size, args.nepochs)
 
     if args.output == '':
         args.output = './result_data/' + log_name + '.txt'
@@ -58,23 +54,23 @@ def main():
 
     # Loader used for training data
     shuffle_idx = shuffle(np.arange(dataset.classes), random_state=args.seed)
-    
+
     # list of dataloaders: it consists of dataloaders for each task
     train_dataset_loaders = data_handler.make_ContinualLoaders(dataset.train_data,
-                                                            dataset.train_labels,
-                                                            task_info,
-                                                            transform=dataset.train_transform,
-                                                            shuffle_idx = shuffle_idx,
-                                                            data_dict = data_dict,
-                                                           )
+                                                               dataset.train_labels,
+                                                               task_info,
+                                                               transform=dataset.train_transform,
+                                                               shuffle_idx=shuffle_idx,
+                                                               data_dict=data_dict,
+                                                               )
 
     test_dataset_loaders = data_handler.make_ContinualLoaders(dataset.test_data,
-                                                           dataset.test_labels,
-                                                           task_info,
-                                                           transform=dataset.test_transform,
-                                                           shuffle_idx = shuffle_idx,
-                                                           data_dict = data_dict,
-                                                          )
+                                                              dataset.test_labels,
+                                                              task_info,
+                                                              transform=dataset.test_transform,
+                                                              shuffle_idx=shuffle_idx,
+                                                              data_dict=data_dict,
+                                                              )
 
     # Get the required model
     myModel = networks.ModelFactory.get_model(args.dataset, args.trainer, task_info).to(device)
@@ -107,9 +103,7 @@ def main():
 
         myTrainer.train(train_loader, test_loader, t, device)
 
-
-        for u in range(t+1):
-
+        for u in range(t + 1):
             test_loader = test_dataset_loaders[u]
             test_iterator = torch.utils.data.DataLoader(test_loader, 100, shuffle=False)
             test_loss, test_acc = t_classifier.evaluate(myTrainer.model, test_iterator, u, device)
@@ -117,12 +111,11 @@ def main():
             acc[t, u] = test_acc
             lss[t, u] = test_loss
 
-        print('Average accuracy={:5.1f}%'.format(100 * np.mean(acc[t,:t+1])))
+        print('Average accuracy={:5.1f}%'.format(100 * np.mean(acc[t, :t + 1])))
 
         print('Save at ' + args.output)
         np.savetxt(args.output, acc, '%.4f')
         torch.save(myModel.state_dict(), './trained_model/' + log_name + '_task_{}.pt'.format(t))
-
 
     print('*' * 100)
     print('Accuracies =')
@@ -135,6 +128,6 @@ def main():
     print('Done!')
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     torch.multiprocessing.set_start_method('spawn')
     main()

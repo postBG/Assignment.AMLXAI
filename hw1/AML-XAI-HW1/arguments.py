@@ -21,12 +21,12 @@ def get_args():
     parser.add_argument('--date', type=str, default='', help='(default=%(default)s)')
     parser.add_argument('--output', default='', type=str, required=False, help='(default=%(default)s)')
     parser.add_argument('--dataset', default='CIFAR100', type=str,
-                        choices=['CIFAR100', 'MNIST'], 
+                        choices=['CIFAR100', 'MNIST'],
                         help='(default=%(default)s)')
-    
+
     parser.add_argument('--trainer', default='ewc', type=str,
-                        choices=['ewc', 'l2', 'vanilla'], 
+                        choices=['ewc', 'l2', 'vanilla'],
                         help='(default=%(default)s)')
-    
+
     args = parser.parse_args()
     return args
