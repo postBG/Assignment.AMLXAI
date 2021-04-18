@@ -27,6 +27,6 @@ def get_args():
     parser.add_argument('--trainer', default='ewc', type=str,
                         choices=['ewc', 'l2', 'vanilla'],
                         help='(default=%(default)s)')
-
+    parser.add_argument('--device_idx', default='0', type=str, help='Device index')
     args = parser.parse_args()
     return args

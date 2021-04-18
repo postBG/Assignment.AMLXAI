@@ -15,6 +15,7 @@ from arguments import get_args
 # Arguments
 def main():
     args = get_args()
+    utils.set_up_gpu(args)
 
     #########################################################################################################################
 
@@ -29,7 +30,7 @@ def main():
     random.seed(args.seed)
     torch.manual_seed(args.seed)
     torch.backends.cudnn.deterministic = True
-    device = torch.device("cpu")
+    device = torch.device(args.device)
     # torch.backends.cudnn.benchmark = False
 
     if not os.path.isdir('dat'):

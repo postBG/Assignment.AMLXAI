@@ -1,4 +1,7 @@
+import os
+
 import numpy as np
+import torch
 
 
 def human_format(num):
@@ -34,3 +37,9 @@ def print_optimizer_config(optim):
                 print(n + ':', opt[n], end=', ')
         print()
     return
+
+
+def set_up_gpu(args):
+    os.environ['CUDA_VISIBLE_DEVICES'] = args.device_idx
+    args.num_gpu = len(args.device_idx.split(","))
+    args.device = 'cuda' if torch.cuda.is_available() else 'cpu'
