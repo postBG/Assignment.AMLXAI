@@ -1,8 +1,24 @@
 import torch
+import torch.nn as nn
 import torch.utils.data as td
 from tqdm import tqdm
 
 import trainer
+
+
+def _get_named_params(model):
+    params = {}
+    for name, param in model.named_parameters():
+        params[name] = param
+    return params
+
+
+def l2_loss(model, prev_model):
+    prev_params = _get_named_params(prev_model)
+    reg_loss = 0
+    for name, param in model.named_parameters():
+        reg_loss += ((param - prev_params[name]) ** 2).sum()
+    return reg_loss
 
 
 class Trainer(trainer.GenericTrainer):
@@ -10,6 +26,7 @@ class Trainer(trainer.GenericTrainer):
         super().__init__(model, args, optimizer, evaluator, taskcla)
 
         self.lamb = args.lamb
+        self.ce_loss = nn.CrossEntropyLoss()
 
     def train(self, train_loader, test_loader, t, device=None):
 
@@ -17,9 +34,8 @@ class Trainer(trainer.GenericTrainer):
         lr = self.args.lr
         self.setup_training(lr)
         # Do not update self.t
-        if t > 0:  # update fisher before starting training new task
+        if t > 0:
             self.update_frozen_model()
-            self.update_fisher()
 
         # Now, you can update self.t
         self.t = t
@@ -31,8 +47,7 @@ class Trainer(trainer.GenericTrainer):
         for epoch in range(self.args.nepochs):
             self.model.train()
             self.update_lr(epoch, self.args.schedule)
-            for samples in tqdm(self.train_iterator):
-                data, target = samples
+            for data, target in tqdm(self.train_iterator):
                 data, target = data.to(device), target.to(device)
                 batch_size = data.shape[0]
 
@@ -40,7 +55,7 @@ class Trainer(trainer.GenericTrainer):
                 loss_CE = self.criterion(output, target)
 
                 self.optimizer.zero_grad()
-                (loss_CE).backward()
+                loss_CE.backward()
                 self.optimizer.step()
 
             train_loss, train_acc = self.evaluator.evaluate(self.model, self.train_iterator, t, self.device)
@@ -58,9 +73,4 @@ class Trainer(trainer.GenericTrainer):
         
         For the hyperparameter on regularization, please use self.lamb
         """
-
-        #######################################################################################
-
-        # Write youre code here
-
-        #######################################################################################
+        return self.ce_loss(output, targets) + self.lamb * l2_loss(self.model, self.model_fixed)

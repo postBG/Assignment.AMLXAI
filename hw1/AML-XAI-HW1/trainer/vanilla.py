@@ -18,7 +18,7 @@ class Trainer(trainer.GenericTrainer):
         lr = self.args.lr
         self.setup_training(lr)
         # Do not update self.t
-        if t > 0:  # update fisher before start training new task
+        if t > 0:
             self.update_frozen_model()
 
         # Now, you can update self.t
