@@ -73,4 +73,7 @@ class Trainer(trainer.GenericTrainer):
         
         For the hyperparameter on regularization, please use self.lamb
         """
+        if self.t == 0:
+            return self.ce_loss(output,targets)
         return self.ce_loss(output, targets) + self.lamb * l2_loss(self.model, self.model_fixed)
+
