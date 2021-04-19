@@ -25,7 +25,6 @@ def reg_loss(model, prev_model, importance):
     loss = 0
     for name, param in model.named_parameters():
         loss += (importance[name] * (param - prev_params[name]) ** 2).sum()
-    print("FUccccck", loss)
     return loss
 
 
@@ -35,7 +34,6 @@ class Trainer(trainer.GenericTrainer):
 
         self.lamb = args.lamb
         self.fisher = _init_fisher(self.model)
-        print(self.fisher['conv1.weight'])
         self.ce_loss = nn.CrossEntropyLoss()
 
     def train(self, train_loader, test_loader, t, device=None):
