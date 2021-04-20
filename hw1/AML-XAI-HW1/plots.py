@@ -33,8 +33,11 @@ def plot_graph(lambdas, palette, plot_data, save_path, ylim=None):
     linewidth = 1.5
     plt.rcParams['figure.figsize'] = 6, 5
     for i, data in enumerate(plot_data):
-        plt.plot(np.arange(1, len(data) + 1), data, linewidth=linewidth, color=f'#{palette[i]}',
+        plt.plot(data, linewidth=linewidth, color=f'#{palette[i]}',
                  label=r'$\lambda = {}$'.format(lambdas[i]))
+    task_length = len(plot_data[0])
+    xticks = list(range(task_length))
+    plt.xticks(xticks, labels=[f'task {t + 1}' for t in xticks])
     plt.legend(loc='lower left')
     plt.xlabel('Task')
     plt.ylabel('Acc. (%)')
