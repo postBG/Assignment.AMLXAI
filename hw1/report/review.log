@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.9)  8 APR 2021 01:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.9)  21 APR 2021 01:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/user/VSCodeProjects/Midterm.AMLXAI/template/review.tex
-(c:/Users/user/VSCodeProjects/Midterm.AMLXAI/template/review.tex
+**c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.tex
+(c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.tex
 LaTeX2e <2020-10-01> patch level 2
-L3 programming layer <2020-10-27> xparse <2020-03-03> (c:/Users/user/VSCodeProjects/Midterm.AMLXAI/template/cvpr.cls
+L3 programming layer <2020-10-27> xparse <2020-03-03> (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/cvpr.cls
 Document Class: cvpr 2020/5/16 Example LaTex class for IEEE CVPR
 (d:/texlive/2020/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
@@ -269,7 +269,7 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count288
 \l__pdf_internal_box=\box51
-) (c:/Users/user/VSCodeProjects/Midterm.AMLXAI/template/review.aux)
+) (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.aux)
 \openout1 = `review.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
@@ -356,24 +356,89 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 41
  (d:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
+Package epstopdf Info: Source file: <resources/ewc_CIFAR.eps>
+(epstopdf)                    date: 2021-04-20 23:49:37
+(epstopdf)                    size: 20912 bytes
+(epstopdf)             Output file: <resources/ewc_CIFAR-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-04-21 01:32:34
+(epstopdf)                    size: 11597 bytes
+(epstopdf)             Command: <repstopdf --outfile=resources/ewc_CIFAR-eps-converted-to.pdf resources/ewc_CIFAR.eps>
+(epstopdf)             \includegraphics on input line 46.
+Package epstopdf Info: Output file is already uptodate.
+<resources/ewc_CIFAR-eps-converted-to.pdf, id=4, 433.62pt x 361.35pt>
+File: resources/ewc_CIFAR-eps-converted-to.pdf Graphic file (type pdf)
+<use resources/ewc_CIFAR-eps-converted-to.pdf>
+Package pdftex.def Info: resources/ewc_CIFAR-eps-converted-to.pdf  used on input line 46.
+(pdftex.def)             Requested size: 248.42812pt x 207.02477pt.
+Package epstopdf Info: Source file: <resources/l2_CIFAR.eps>
+(epstopdf)                    date: 2021-04-20 23:49:32
+(epstopdf)                    size: 20898 bytes
+(epstopdf)             Output file: <resources/l2_CIFAR-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-04-21 01:32:36
+(epstopdf)                    size: 11603 bytes
+(epstopdf)             Command: <repstopdf --outfile=resources/l2_CIFAR-eps-converted-to.pdf resources/l2_CIFAR.eps>
+(epstopdf)             \includegraphics on input line 47.
+Package epstopdf Info: Output file is already uptodate.
+<resources/l2_CIFAR-eps-converted-to.pdf, id=5, 433.62pt x 361.35pt>
+File: resources/l2_CIFAR-eps-converted-to.pdf Graphic file (type pdf)
+<use resources/l2_CIFAR-eps-converted-to.pdf>
+Package pdftex.def Info: resources/l2_CIFAR-eps-converted-to.pdf  used on input line 47.
+(pdftex.def)             Requested size: 248.42812pt x 207.02477pt.
+Package epstopdf Info: Source file: <resources/ewc_MNIST.eps>
+(epstopdf)                    date: 2021-04-20 23:45:49
+(epstopdf)                    size: 23560 bytes
+(epstopdf)             Output file: <resources/ewc_MNIST-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-04-21 01:32:37
+(epstopdf)                    size: 12753 bytes
+(epstopdf)             Command: <repstopdf --outfile=resources/ewc_MNIST-eps-converted-to.pdf resources/ewc_MNIST.eps>
+(epstopdf)             \includegraphics on input line 49.
+Package epstopdf Info: Output file is already uptodate.
+<resources/ewc_MNIST-eps-converted-to.pdf, id=6, 433.62pt x 361.35pt>
+File: resources/ewc_MNIST-eps-converted-to.pdf Graphic file (type pdf)
+<use resources/ewc_MNIST-eps-converted-to.pdf>
+Package pdftex.def Info: resources/ewc_MNIST-eps-converted-to.pdf  used on input line 49.
+(pdftex.def)             Requested size: 248.42812pt x 207.02477pt.
+Package epstopdf Info: Source file: <resources/l2_MNIST.eps>
+(epstopdf)                    date: 2021-04-20 23:45:18
+(epstopdf)                    size: 23551 bytes
+(epstopdf)             Output file: <resources/l2_MNIST-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-04-21 01:32:39
+(epstopdf)                    size: 12764 bytes
+(epstopdf)             Command: <repstopdf --outfile=resources/l2_MNIST-eps-converted-to.pdf resources/l2_MNIST.eps>
+(epstopdf)             \includegraphics on input line 50.
+Package epstopdf Info: Output file is already uptodate.
+<resources/l2_MNIST-eps-converted-to.pdf, id=7, 433.62pt x 361.35pt>
+File: resources/l2_MNIST-eps-converted-to.pdf Graphic file (type pdf)
+<use resources/l2_MNIST-eps-converted-to.pdf>
+Package pdftex.def Info: resources/l2_MNIST-eps-converted-to.pdf  used on input line 50.
+(pdftex.def)             Requested size: 248.42812pt x 207.02477pt.
+
+Overfull \hbox (26.22638pt too wide) in paragraph at lines 45--53
+[][] 
+ []
+
 No file review.bbl.
 [1
 
 
-{d:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (c:/Users/user/VSCodeProjects/Midterm.AMLXAI/template/review.aux) ) 
+{d:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.65 \end{document}
+                    [2 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/ewc_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/l2_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/ewc_MNIST-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/l2_MNIST-eps-converted-to.pdf>] (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.aux) ) 
 Here is how much of TeX's memory you used:
- 7318 strings out of 479485
- 107302 string characters out of 5875916
- 410841 words of memory out of 5000000
- 24177 multiletter control sequences out of 15000+600000
- 548020 words of font info for 61 fonts, out of 8000000 for 9000
+ 7356 strings out of 479485
+ 108446 string characters out of 5875916
+ 410875 words of memory out of 5000000
+ 24207 multiletter control sequences out of 15000+600000
+ 551875 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 91i,7n,98p,309b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 91i,12n,98p,296b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on c:/Users/user/VSCodeProjects/Midterm.AMLXAI/template/review.pdf (1 page, 33553 bytes).
+Output written on c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.pdf (2 pages, 65634 bytes).
 PDF statistics:
- 30 PDF objects out of 1000 (max. 8388607)
- 23 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 151 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
+ 4 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
