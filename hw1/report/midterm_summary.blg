@@ -6,45 +6,45 @@ Database file #1: egbib.bib
 Warning--empty journal in cifar
 Warning--empty year in cifar
 Warning--empty journal in mnist
-You've used 3 entries,
+You've used 4 entries,
             2120 wiz_defined-function locations,
-            589 strings with 5184 characters,
-and the built_in function-call counts, 1170 in all, are:
-= -- 91
-> -- 104
+            593 strings with 5267 characters,
+and the built_in function-call counts, 1442 in all, are:
+= -- 114
+> -- 117
 < -- 0
-+ -- 41
-- -- 38
-* -- 97
-:= -- 218
-add.period$ -- 8
-call.type$ -- 3
-change.case$ -- 28
++ -- 46
+- -- 42
+* -- 110
+:= -- 263
+add.period$ -- 11
+call.type$ -- 4
+change.case$ -- 33
 chr.to.int$ -- 0
-cite$ -- 6
-duplicate$ -- 34
-empty$ -- 63
-format.name$ -- 38
-if$ -- 217
+cite$ -- 7
+duplicate$ -- 48
+empty$ -- 91
+format.name$ -- 42
+if$ -- 276
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 3
-newline$ -- 17
-num.names$ -- 6
-pop$ -- 38
+int.to.str$ -- 4
+missing$ -- 4
+newline$ -- 22
+num.names$ -- 8
+pop$ -- 47
 preamble$ -- 1
-purify$ -- 25
+purify$ -- 29
 quote$ -- 0
-skip$ -- 21
+skip$ -- 29
 stack$ -- 0
-substring$ -- 15
-swap$ -- 2
+substring$ -- 20
+swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
+type$ -- 16
 warning$ -- 3
-while$ -- 6
-width$ -- 4
-write$ -- 28
+while$ -- 8
+width$ -- 5
+write$ -- 38
 (There were 3 warnings)

@@ -2,3 +2,6 @@
 \backcite {cifar}{{1}{1}{section.1}}
 \backcite {mnist}{{1}{1}{section.1}}
 \backcite {ewc}{{1}{2}{equation.2.1}}
+\backcite {adam}{{1}{3}{section.3}}
+\backcite {mnist}{{1}{3}{section.3}}
+\backcite {cifar}{{1}{3}{section.3}}

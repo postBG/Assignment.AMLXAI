@@ -1,5 +1,10 @@
 \begin{thebibliography}{1}\itemsep=-1pt
 
+\bibitem{adam}
+Diederik~P. Kingma and Jimmy Ba.
+\newblock Adam: A method for stochastic optimization.
+\newblock In {\em ICLR}, 2015.
+
 \bibitem{ewc}
 James Kirkpatrick, Razvan Pascanu, Neil Rabinowitz, Joel Veness, Guillaume
   Desjardins, Andrei~A. Rusu, Kieran Milan, John Quan, Tiago Ramalho, Agnieszka

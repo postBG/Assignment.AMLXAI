@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex midterm_summary"] 1619028860 "midterm_summary.aux" "midterm_summary.bbl" "midterm_summary" 1619028862
+["bibtex midterm_summary"] 1619030276 "midterm_summary.aux" "midterm_summary.bbl" "midterm_summary" 1619030799
   "./ieee_fullname.bst" 1619023790 19905 72b73f4cb1c51eaa1a7af8ecad2b6bfb ""
-  "egbib.bib" 1619024110 2650 0f57f61efada8a85b718497a89ca30cf ""
-  "midterm_summary.aux" 1619028862 2048 a7d63437b2ecce675c35a74bb6bf063a "pdflatex"
+  "egbib.bib" 1619029201 2829 d0b21fb5a16e2e3ba629d8b89be7180a ""
+  "midterm_summary.aux" 1619030799 2306 cc6ce2f6bf7b06e3fa66f0e7b4755515 "pdflatex"
   (generated)
-  "midterm_summary.blg"
   "midterm_summary.bbl"
-["pdflatex"] 1619028860 "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.tex" "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.pdf" "midterm_summary" 1619028862
-  "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.aux" 1619028862 2048 a7d63437b2ecce675c35a74bb6bf063a ""
-  "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.tex" 1619028852 5041 326daec1a9f9423b570b922600cebe55 ""
+  "midterm_summary.blg"
+["pdflatex"] 1619030797 "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.tex" "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.pdf" "midterm_summary" 1619030799
+  "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.aux" 1619030799 2306 cc6ce2f6bf7b06e3fa66f0e7b4755515 ""
+  "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.tex" 1619030796 6224 e40c9db3d219445585006c4771ccc7b0 ""
   "cvpr.cls" 1619023789 20566 94fe0374a1aefb79e6d48d815a6f6901 ""
   "d:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc" 1604861079 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "d:/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1604861363 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -107,6 +107,7 @@
   "d:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1604861903 23704 02c466ff883953a445c97e55638005fc ""
   "d:/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1604861998 678 4792914a8f45be57bb98413425e4c7af ""
   "d:/texlive/2020/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty" 1604862044 5766 13a9e8766c47f30327caf893ece86ac8 ""
+  "d:/texlive/2020/texmf-dist/tex/latex/psnfss/omsptm.fd" 1604862957 576 95c2c0baea9c719a4be29a3d4122498b ""
   "d:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd" 1604862957 985 1ed784d7bfe47179f3550d2303b073f8 ""
   "d:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1604862957 961 15056f4a61917ceed3a44e4ac11fcc52 ""
   "d:/texlive/2020/texmf-dist/tex/latex/psnfss/times.sty" 1604862957 856 8e0e5c8cca7b18e0400f97f5a2b90a99 ""
@@ -119,10 +120,10 @@
   "d:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1604864317 5062869 8bb5935a5e529db42a3713d6ac00d65e ""
   "d:/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1604864485 2549539 fe49f507564a54623069bf17eea49038 ""
   "d:/texlive/2020/texmf.cnf" 1604864220 713 e69b156964470283e0530f5060668171 ""
-  "midterm_summary.aux" 1619028862 2048 a7d63437b2ecce675c35a74bb6bf063a "pdflatex"
-  "midterm_summary.bbl" 1619028860 662 a7d5c9318cf200ecc3fd8dbe1af2ac38 "bibtex midterm_summary"
-  "midterm_summary.brf" 1619028862 147 37147a97bb7dae50e34e413403a470f1 "pdflatex"
-  "midterm_summary.tex" 1619028852 5041 326daec1a9f9423b570b922600cebe55 ""
+  "midterm_summary.aux" 1619030799 2306 cc6ce2f6bf7b06e3fa66f0e7b4755515 "pdflatex"
+  "midterm_summary.bbl" 1619030276 796 54167ce679c73a95a0538709513454dd "bibtex midterm_summary"
+  "midterm_summary.brf" 1619030799 257 849c810f769fce2700eded6a0f8a2cfa "pdflatex"
+  "midterm_summary.tex" 1619030796 6224 e40c9db3d219445585006c4771ccc7b0 ""
   "resources/comp_CIFAR.eps" 1618935501 17596 2c743f4acc69ed62e13717f950ebc752 ""
   "resources/comp_MNIST.eps" 1618935752 19765 e15e016520a79e1e695e79bf48f25531 ""
   "resources/ewc_CIFAR.eps" 1618930177 20912 a2ca30951f622c20925e602b9a1a5725 ""
@@ -130,9 +131,9 @@
   "resources/l2_CIFAR.eps" 1618930172 20898 43a3b7e9625c7e5e8fb16b94dc966c82 ""
   "resources/l2_MNIST.eps" 1618929918 23551 e080888573f3ae7e6a7f7efb892421e5 ""
   (generated)
-  "midterm_summary.brf"
   "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.pdf"
   "midterm_summary.aux"
+  "midterm_summary.log"
   "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.log"
   "midterm_summary.pdf"
-  "midterm_summary.log"
+  "midterm_summary.brf"

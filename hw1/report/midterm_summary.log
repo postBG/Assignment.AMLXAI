@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.9)  22 APR 2021 03:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.9)  22 APR 2021 03:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -263,11 +263,7 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count287
 \l__pdf_internal_box=\box51
-) (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.aux
-
-LaTeX Warning: Label `fig:tsne' multiply defined.
-
-)
+) (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.aux)
 \openout1 = `midterm_summary.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
@@ -354,6 +350,16 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 38
  (d:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 67.
+ (d:/texlive/2020/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 67.
+ [1
+
+
+{d:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Package epstopdf Info: Source file: <resources/ewc_CIFAR.eps>
 (epstopdf)                    date: 2021-04-20 23:49:37
 (epstopdf)                    size: 20912 bytes
@@ -361,12 +367,12 @@ Package epstopdf Info: Source file: <resources/ewc_CIFAR.eps>
 (epstopdf)                    date: 2021-04-21 01:32:34
 (epstopdf)                    size: 11597 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/ewc_CIFAR-eps-converted-to.pdf resources/ewc_CIFAR.eps>
-(epstopdf)             \includegraphics on input line 71.
+(epstopdf)             \includegraphics on input line 74.
 Package epstopdf Info: Output file is already uptodate.
-<resources/ewc_CIFAR-eps-converted-to.pdf, id=9, 433.62pt x 361.35pt>
+<resources/ewc_CIFAR-eps-converted-to.pdf, id=38, 433.62pt x 361.35pt>
 File: resources/ewc_CIFAR-eps-converted-to.pdf Graphic file (type pdf)
 <use resources/ewc_CIFAR-eps-converted-to.pdf>
-Package pdftex.def Info: resources/ewc_CIFAR-eps-converted-to.pdf  used on input line 71.
+Package pdftex.def Info: resources/ewc_CIFAR-eps-converted-to.pdf  used on input line 74.
 (pdftex.def)             Requested size: 223.58379pt x 186.32063pt.
 Package epstopdf Info: Source file: <resources/l2_CIFAR.eps>
 (epstopdf)                    date: 2021-04-20 23:49:32
@@ -375,12 +381,12 @@ Package epstopdf Info: Source file: <resources/l2_CIFAR.eps>
 (epstopdf)                    date: 2021-04-21 01:32:36
 (epstopdf)                    size: 11603 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/l2_CIFAR-eps-converted-to.pdf resources/l2_CIFAR.eps>
-(epstopdf)             \includegraphics on input line 72.
+(epstopdf)             \includegraphics on input line 75.
 Package epstopdf Info: Output file is already uptodate.
-<resources/l2_CIFAR-eps-converted-to.pdf, id=10, 433.62pt x 361.35pt>
+<resources/l2_CIFAR-eps-converted-to.pdf, id=39, 433.62pt x 361.35pt>
 File: resources/l2_CIFAR-eps-converted-to.pdf Graphic file (type pdf)
 <use resources/l2_CIFAR-eps-converted-to.pdf>
-Package pdftex.def Info: resources/l2_CIFAR-eps-converted-to.pdf  used on input line 72.
+Package pdftex.def Info: resources/l2_CIFAR-eps-converted-to.pdf  used on input line 75.
 (pdftex.def)             Requested size: 223.58379pt x 186.32063pt.
 Package epstopdf Info: Source file: <resources/ewc_MNIST.eps>
 (epstopdf)                    date: 2021-04-20 23:45:49
@@ -389,12 +395,12 @@ Package epstopdf Info: Source file: <resources/ewc_MNIST.eps>
 (epstopdf)                    date: 2021-04-21 01:32:37
 (epstopdf)                    size: 12753 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/ewc_MNIST-eps-converted-to.pdf resources/ewc_MNIST.eps>
-(epstopdf)             \includegraphics on input line 74.
+(epstopdf)             \includegraphics on input line 77.
 Package epstopdf Info: Output file is already uptodate.
-<resources/ewc_MNIST-eps-converted-to.pdf, id=11, 433.62pt x 361.35pt>
+<resources/ewc_MNIST-eps-converted-to.pdf, id=40, 433.62pt x 361.35pt>
 File: resources/ewc_MNIST-eps-converted-to.pdf Graphic file (type pdf)
 <use resources/ewc_MNIST-eps-converted-to.pdf>
-Package pdftex.def Info: resources/ewc_MNIST-eps-converted-to.pdf  used on input line 74.
+Package pdftex.def Info: resources/ewc_MNIST-eps-converted-to.pdf  used on input line 77.
 (pdftex.def)             Requested size: 223.58379pt x 186.32063pt.
 Package epstopdf Info: Source file: <resources/l2_MNIST.eps>
 (epstopdf)                    date: 2021-04-20 23:45:18
@@ -403,12 +409,12 @@ Package epstopdf Info: Source file: <resources/l2_MNIST.eps>
 (epstopdf)                    date: 2021-04-21 01:32:39
 (epstopdf)                    size: 12764 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/l2_MNIST-eps-converted-to.pdf resources/l2_MNIST.eps>
-(epstopdf)             \includegraphics on input line 75.
+(epstopdf)             \includegraphics on input line 78.
 Package epstopdf Info: Output file is already uptodate.
-<resources/l2_MNIST-eps-converted-to.pdf, id=12, 433.62pt x 361.35pt>
+<resources/l2_MNIST-eps-converted-to.pdf, id=41, 433.62pt x 361.35pt>
 File: resources/l2_MNIST-eps-converted-to.pdf Graphic file (type pdf)
 <use resources/l2_MNIST-eps-converted-to.pdf>
-Package pdftex.def Info: resources/l2_MNIST-eps-converted-to.pdf  used on input line 75.
+Package pdftex.def Info: resources/l2_MNIST-eps-converted-to.pdf  used on input line 78.
 (pdftex.def)             Requested size: 223.58379pt x 186.32063pt.
 Package epstopdf Info: Source file: <resources/comp_CIFAR.eps>
 (epstopdf)                    date: 2021-04-21 01:18:21
@@ -417,12 +423,12 @@ Package epstopdf Info: Source file: <resources/comp_CIFAR.eps>
 (epstopdf)                    date: 2021-04-21 17:27:20
 (epstopdf)                    size: 11776 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/comp_CIFAR-eps-converted-to.pdf resources/comp_CIFAR.eps>
-(epstopdf)             \includegraphics on input line 86.
+(epstopdf)             \includegraphics on input line 89.
 Package epstopdf Info: Output file is already uptodate.
-<resources/comp_CIFAR-eps-converted-to.pdf, id=13, 433.62pt x 361.35pt>
+<resources/comp_CIFAR-eps-converted-to.pdf, id=42, 433.62pt x 361.35pt>
 File: resources/comp_CIFAR-eps-converted-to.pdf Graphic file (type pdf)
 <use resources/comp_CIFAR-eps-converted-to.pdf>
-Package pdftex.def Info: resources/comp_CIFAR-eps-converted-to.pdf  used on input line 86.
+Package pdftex.def Info: resources/comp_CIFAR-eps-converted-to.pdf  used on input line 89.
 (pdftex.def)             Requested size: 223.58379pt x 186.32063pt.
 Package epstopdf Info: Source file: <resources/comp_MNIST.eps>
 (epstopdf)                    date: 2021-04-21 01:22:32
@@ -431,41 +437,34 @@ Package epstopdf Info: Source file: <resources/comp_MNIST.eps>
 (epstopdf)                    date: 2021-04-21 17:27:22
 (epstopdf)                    size: 12427 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/comp_MNIST-eps-converted-to.pdf resources/comp_MNIST.eps>
-(epstopdf)             \includegraphics on input line 87.
+(epstopdf)             \includegraphics on input line 90.
 Package epstopdf Info: Output file is already uptodate.
-<resources/comp_MNIST-eps-converted-to.pdf, id=14, 433.62pt x 361.35pt>
+<resources/comp_MNIST-eps-converted-to.pdf, id=43, 433.62pt x 361.35pt>
 File: resources/comp_MNIST-eps-converted-to.pdf Graphic file (type pdf)
 <use resources/comp_MNIST-eps-converted-to.pdf>
-Package pdftex.def Info: resources/comp_MNIST-eps-converted-to.pdf  used on input line 87.
+Package pdftex.def Info: resources/comp_MNIST-eps-converted-to.pdf  used on input line 90.
 (pdftex.def)             Requested size: 223.58379pt x 186.32063pt.
  (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.bbl (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.brf)
 \tf@brf=\write3
 \openout3 = `midterm_summary.brf'.
 
- [1
-
-
-{d:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) [2 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/ewc_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/l2_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/ewc_MNIST-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/l2_MNIST-eps-converted-to.pdf>] [3 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/comp_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/comp_MNIST-eps-converted-to.pdf>] (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.aux)
+) [2 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/ewc_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/l2_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/ewc_MNIST-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/l2_MNIST-eps-converted-to.pdf>] [3 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/comp_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/comp_MNIST-eps-converted-to.pdf>] (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.aux)
 Package rerunfilecheck Info: File `midterm_summary.brf' has not changed.
-(rerunfilecheck)             Checksum: 37147A97BB7DAE50E34E413403A470F1;147.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
+(rerunfilecheck)             Checksum: 849C810F769FCE2700EDED6A0F8A2CFA;257.
  ) 
 Here is how much of TeX's memory you used:
- 7351 strings out of 479485
- 108813 string characters out of 5875916
- 421417 words of memory out of 5000000
- 24182 multiletter control sequences out of 15000+600000
+ 7374 strings out of 479485
+ 109146 string characters out of 5875916
+ 421413 words of memory out of 5000000
+ 24201 multiletter control sequences out of 15000+600000
  556350 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 91i,12n,98p,964b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 91i,12n,98p,964b,328s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.pdf (3 pages, 153592 bytes).
+Output written on c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.pdf (3 pages, 156477 bytes).
 PDF statistics:
- 267 PDF objects out of 1000 (max. 8388607)
- 96 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
+ 274 PDF objects out of 1000 (max. 8388607)
+ 102 compressed objects within 2 object streams
+ 18 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

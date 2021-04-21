@@ -61,9 +61,12 @@ L2 regularization uses the following equation as its regularization term:
 We can interpret that L2 regularization does not consider the importance of each weight. We use L2 regularization to validate whether the EWC's importance estimation is helpful or not. No regularization or vanilla training does not utilize $L_{reg}$. 
 
 \section{Experiments}
-In this section, we describe the experiment settings and their results. First, we conduct experiments for finding the optimal value of $\lambda$ used for balancing $\mathcal{L}_{CE}$ and $\mathcal{L}_{reg}$. In the second experiment, we compare the three methods described in the section~\ref{method}.
+In this section, we describe the experiment settings and their results. First, we conduct experiments for finding the optimal value of $\lambda$ used for balancing $\mathcal{L}_{CE}$ and $\mathcal{L}_{reg}$. In the second experiment, we compare the three methods described in the section~\ref{method}. We follow the provided guideline for the experiments. We use Adam optimizer~\cite{adam}, 1e-3 as the learning rate, and batch size 256 for all the experiments. We use 20 and 60 epochs for MNIST~\cite{mnist} and CIFAR-100~\cite{cifar}, respectively. 
 
 \subsection{Hyperparameter Searching}
+We use \{0.1, 0.5, 1.0, 10.0, 20.0, 40.0, 100.0, 200.0\} for the hyperparameters searching scope. Figure~\ref{hyper} shows the results of the experiments. The x-axis of each plot is the number of tasks learned so far, and the y-axis represents the average accuracy.  We fix the random seed as 0 for replacing another randomness. As we can observe, the smallest $\lambda$ shows the best average accuracy for L2 regularization. We can also observe that bigger $\lambda$ has detrimental effects on learning new tasks.
+On the other hand, the optimal $\lambda$ for EWC varies depending on datasets. For example, the optimal $\lambda$ for CIFAR-100 is 1.0, but the optimal value for MNIST is 200.0. The large gap between the two values implies that the complexity of given tasks can affect the importance of the regularization term. Furthermore, we can observe that EWC is less sensitive to the hyperparameter. 
+
 
 \begin{figure}[t]
     \centering
@@ -75,9 +78,9 @@ In this section, we describe the experiment settings and their results. First, w
         \includegraphics[width=0.45\textwidth]{resources/l2_MNIST.eps}\\%
 		(c) EWC MNIST  & (d) L2 MNIST \\
 	\end{tabular}\vspace{0.2cm}
-	\caption{some captions}
-	\label{fig:tsne}
+	\caption{The results of the hyperparameters searching experiments.}
 	% \vspace{-0.4cm}
+    \label{hyper}
 \end{figure}
 
 \begin{figure}[t]
@@ -88,7 +91,6 @@ In this section, we describe the experiment settings and their results. First, w
         (a) Comparing on CIFAR100 & (b) Comparing on MNIST\\
 	\end{tabular}\vspace{0.2cm}
 	\caption{some captions}
-	\label{fig:tsne}
 	% \vspace{-0.4cm}
 \end{figure}
 
