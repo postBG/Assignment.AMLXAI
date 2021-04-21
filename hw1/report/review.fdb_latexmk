@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex review"] 1618936628 "review.aux" "review.bbl" "review" 1618936630
+["bibtex review"] 1618993868 "review.aux" "review.bbl" "review" 1618993870
   "egbib.bib" 0 -1 0 ""
   "ieee_fullname.bst" 0 -1 0 ""
-  "review.aux" 1618936629 1038 84882c29b1f40a2d8a2a4a9ed4f361bc "pdflatex"
+  "review.aux" 1618993869 1215 19d58dce5384fa1cbe7ec3cc684d6e2d "pdflatex"
   (generated)
-  "review.blg"
   "review.bbl"
-["pdflatex"] 1618936628 "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.tex" "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.pdf" "review" 1618936630
-  "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.aux" 1618936629 1038 84882c29b1f40a2d8a2a4a9ed4f361bc ""
-  "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.tex" 1618936627 1719 9292717c1c3d748134968cfcf1c8fd5b ""
+  "review.blg"
+["pdflatex"] 1618993868 "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.tex" "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.pdf" "review" 1618993870
+  "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.aux" 1618993869 1215 19d58dce5384fa1cbe7ec3cc684d6e2d ""
+  "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.tex" 1618993867 2093 c1711de5eba94c8e1b6b01267b997c50 ""
   "cvpr.cls" 1617813505 20566 94fe0374a1aefb79e6d48d815a6f6901 ""
   "d:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc" 1604861079 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "d:/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1604861363 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -109,16 +109,18 @@
   "d:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1604864317 5062869 8bb5935a5e529db42a3713d6ac00d65e ""
   "d:/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1604864485 2549539 fe49f507564a54623069bf17eea49038 ""
   "d:/texlive/2020/texmf.cnf" 1604864220 713 e69b156964470283e0530f5060668171 ""
+  "resources/comp_CIFAR.eps" 1618935501 17596 2c743f4acc69ed62e13717f950ebc752 ""
+  "resources/comp_MNIST.eps" 1618935752 19765 e15e016520a79e1e695e79bf48f25531 ""
   "resources/ewc_CIFAR.eps" 1618930177 20912 a2ca30951f622c20925e602b9a1a5725 ""
   "resources/ewc_MNIST.eps" 1618929949 23560 2a3cfd347acf757287a417b7fa22588f ""
   "resources/l2_CIFAR.eps" 1618930172 20898 43a3b7e9625c7e5e8fb16b94dc966c82 ""
   "resources/l2_MNIST.eps" 1618929918 23551 e080888573f3ae7e6a7f7efb892421e5 ""
-  "review.aux" 1618936629 1038 84882c29b1f40a2d8a2a4a9ed4f361bc "pdflatex"
+  "review.aux" 1618993869 1215 19d58dce5384fa1cbe7ec3cc684d6e2d "pdflatex"
   "review.bbl" 0 -1 0 "bibtex review"
-  "review.tex" 1618936627 1719 9292717c1c3d748134968cfcf1c8fd5b ""
+  "review.tex" 1618993867 2093 c1711de5eba94c8e1b6b01267b997c50 ""
   (generated)
-  "review.log"
-  "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.pdf"
   "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.log"
   "review.aux"
+  "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.pdf"
+  "review.log"
   "review.pdf"

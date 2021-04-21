@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.9)  21 APR 2021 01:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.9)  21 APR 2021 17:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -269,7 +269,11 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count288
 \l__pdf_internal_box=\box51
-) (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.aux)
+) (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.aux
+
+LaTeX Warning: Label `fig:tsne' multiply defined.
+
+)
 \openout1 = `review.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
@@ -417,6 +421,39 @@ Overfull \hbox (26.22638pt too wide) in paragraph at lines 45--53
 [][] 
  []
 
+Package epstopdf Info: Source file: <resources/comp_CIFAR.eps>
+(epstopdf)                    date: 2021-04-21 01:18:21
+(epstopdf)                    size: 17596 bytes
+(epstopdf)             Output file: <resources/comp_CIFAR-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-04-21 17:27:20
+(epstopdf)                    size: 11776 bytes
+(epstopdf)             Command: <repstopdf --outfile=resources/comp_CIFAR-eps-converted-to.pdf resources/comp_CIFAR.eps>
+(epstopdf)             \includegraphics on input line 60.
+Package epstopdf Info: Output file is already uptodate.
+<resources/comp_CIFAR-eps-converted-to.pdf, id=8, 433.62pt x 361.35pt>
+File: resources/comp_CIFAR-eps-converted-to.pdf Graphic file (type pdf)
+<use resources/comp_CIFAR-eps-converted-to.pdf>
+Package pdftex.def Info: resources/comp_CIFAR-eps-converted-to.pdf  used on input line 60.
+(pdftex.def)             Requested size: 248.42812pt x 207.02477pt.
+Package epstopdf Info: Source file: <resources/comp_MNIST.eps>
+(epstopdf)                    date: 2021-04-21 01:22:32
+(epstopdf)                    size: 19765 bytes
+(epstopdf)             Output file: <resources/comp_MNIST-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-04-21 17:27:22
+(epstopdf)                    size: 12427 bytes
+(epstopdf)             Command: <repstopdf --outfile=resources/comp_MNIST-eps-converted-to.pdf resources/comp_MNIST.eps>
+(epstopdf)             \includegraphics on input line 61.
+Package epstopdf Info: Output file is already uptodate.
+<resources/comp_MNIST-eps-converted-to.pdf, id=9, 433.62pt x 361.35pt>
+File: resources/comp_MNIST-eps-converted-to.pdf Graphic file (type pdf)
+<use resources/comp_MNIST-eps-converted-to.pdf>
+Package pdftex.def Info: resources/comp_MNIST-eps-converted-to.pdf  used on input line 61.
+(pdftex.def)             Requested size: 248.42812pt x 207.02477pt.
+
+Overfull \hbox (26.22638pt too wide) in paragraph at lines 59--64
+[][] 
+ []
+
 No file review.bbl.
 [1
 
@@ -424,21 +461,29 @@ No file review.bbl.
 {d:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.65 \end{document}
-                    [2 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/ewc_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/l2_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/ewc_MNIST-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/l2_MNIST-eps-converted-to.pdf>] (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.aux) ) 
+l.76 \end{document}
+                    [2 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/ewc_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/l2_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/ewc_MNIST-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/l2_MNIST-eps-converted-to.pdf>]pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.76 \end{document}
+                    [3 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/comp_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/comp_MNIST-eps-converted-to.pdf>] (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 7356 strings out of 479485
- 108446 string characters out of 5875916
- 410875 words of memory out of 5000000
- 24207 multiletter control sequences out of 15000+600000
+ 7370 strings out of 479485
+ 108963 string characters out of 5875916
+ 411948 words of memory out of 5000000
+ 24218 multiletter control sequences out of 15000+600000
  551875 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 91i,12n,98p,296b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 91i,12n,98p,296b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.pdf (2 pages, 65634 bytes).
+Output written on c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/review.pdf (3 pages, 84047 bytes).
 PDF statistics:
- 151 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
- 4 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 216 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
+ 5 named destinations out of 1000 (max. 500000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
