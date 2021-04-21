@@ -1,0 +1,12 @@
+python3 main.py --trainer vanilla --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 2 --seed=0
+python3 main.py --trainer vanilla --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 2 --seed=1
+python3 main.py --trainer vanilla --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 2 --seed=2
+python3 main.py --trainer vanilla --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 2 --seed=3
+python3 main.py --trainer vanilla --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 2 --seed=4
+python3 main.py --trainer vanilla --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 2 --seed=5
+python3 main.py --trainer l2 --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 2 --lamb 0.1 --seed=0
+python3 main.py --trainer l2 --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 2 --lamb 0.1 --seed=1
+python3 main.py --trainer l2 --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 2 --lamb 0.1 --seed=2
+python3 main.py --trainer l2 --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 2 --lamb 0.1 --seed=3
+python3 main.py --trainer l2 --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 2 --lamb 0.1 --seed=4
+python3 main.py --trainer l2 --dataset MNIST --nepochs 20 --lr 0.001 --device_idx 2 --lamb 0.1 --seed=5
