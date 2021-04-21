@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex midterm_summary"] 1619030276 "midterm_summary.aux" "midterm_summary.bbl" "midterm_summary" 1619030799
+["bibtex midterm_summary"] 1619030276 "midterm_summary.aux" "midterm_summary.bbl" "midterm_summary" 1619030872
   "./ieee_fullname.bst" 1619023790 19905 72b73f4cb1c51eaa1a7af8ecad2b6bfb ""
   "egbib.bib" 1619029201 2829 d0b21fb5a16e2e3ba629d8b89be7180a ""
   "midterm_summary.aux" 1619030799 2306 cc6ce2f6bf7b06e3fa66f0e7b4755515 "pdflatex"
   (generated)
   "midterm_summary.bbl"
   "midterm_summary.blg"
-["pdflatex"] 1619030797 "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.tex" "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.pdf" "midterm_summary" 1619030799
+["pdflatex"] 1619030797 "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.tex" "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.pdf" "midterm_summary" 1619030872
   "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.aux" 1619030799 2306 cc6ce2f6bf7b06e3fa66f0e7b4755515 ""
-  "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.tex" 1619030796 6224 e40c9db3d219445585006c4771ccc7b0 ""
+  "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.tex" 1619030871 6224 e40c9db3d219445585006c4771ccc7b0 ""
   "cvpr.cls" 1619023789 20566 94fe0374a1aefb79e6d48d815a6f6901 ""
   "d:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc" 1604861079 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "d:/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1604861363 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -123,7 +123,7 @@
   "midterm_summary.aux" 1619030799 2306 cc6ce2f6bf7b06e3fa66f0e7b4755515 "pdflatex"
   "midterm_summary.bbl" 1619030276 796 54167ce679c73a95a0538709513454dd "bibtex midterm_summary"
   "midterm_summary.brf" 1619030799 257 849c810f769fce2700eded6a0f8a2cfa "pdflatex"
-  "midterm_summary.tex" 1619030796 6224 e40c9db3d219445585006c4771ccc7b0 ""
+  "midterm_summary.tex" 1619030871 6224 e40c9db3d219445585006c4771ccc7b0 ""
   "resources/comp_CIFAR.eps" 1618935501 17596 2c743f4acc69ed62e13717f950ebc752 ""
   "resources/comp_MNIST.eps" 1618935752 19765 e15e016520a79e1e695e79bf48f25531 ""
   "resources/ewc_CIFAR.eps" 1618930177 20912 a2ca30951f622c20925e602b9a1a5725 ""
@@ -131,9 +131,9 @@
   "resources/l2_CIFAR.eps" 1618930172 20898 43a3b7e9625c7e5e8fb16b94dc966c82 ""
   "resources/l2_MNIST.eps" 1618929918 23551 e080888573f3ae7e6a7f7efb892421e5 ""
   (generated)
-  "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.pdf"
-  "midterm_summary.aux"
   "midterm_summary.log"
+  "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.pdf"
   "c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.log"
   "midterm_summary.pdf"
   "midterm_summary.brf"
+  "midterm_summary.aux"
