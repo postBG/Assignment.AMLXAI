@@ -1,5 +1,8 @@
 import os
 import re
+from itertools import groupby
+
+import numpy as np
 
 import matplotlib.pyplot as plt
 
@@ -19,6 +22,11 @@ class ResultData(object):
         return avg * 100 if percent else avg
 
 
+def average_result_data_list(result_data_list, percent=True):
+    averages = np.array([result_data.averages(percent=percent) for result_data in result_data_list])
+    return list(np.average(averages, axis=0))
+
+
 def read_result(path):
     rel_path = os.path.join('result_data', path)
     with open(rel_path, 'r') as f:
@@ -26,6 +34,10 @@ def read_result(path):
         results = [[float(x) for x in l.strip().split()] for l in lines]
         lengths = list(range(1, len(lines) + 1))
         return ResultData(results, lengths)
+
+
+def retrieve_reg_from_path(path):
+    return re.findall('(CIFAR100|MNIST)_([\w\d]+?)_', path)[0][1]
 
 
 def format_plot(plot_data, save_path, ylim):
@@ -70,9 +82,13 @@ def plot_search_graphs_from_result_paths(paths, save_path='', ylim=None):
 
 
 def plot_comparing_graphs_from_result_paths(paths, save_path='', ylim=None):
-    results = [read_result(path) for path in paths]
-    plot_data = [result.averages(percent=True) for result in results]
-    regularizers = [re.findall('(CIFAR100|MNIST)_([\w\d]+?)_', path)[0][1] for path in paths]
+    reg_result_pairs = [(retrieve_reg_from_path(path), read_result(path)) for path in paths]
+    reg_result_pairs = sorted(reg_result_pairs, key=lambda x: x[0])
+    groups = groupby(reg_result_pairs, key=lambda x: x[0])
+    groups = [(reg, list(result_data for _, result_data in pairs)) for reg, pairs in groups]
+    averages = [(reg, average_result_data_list(result_data_list)) for reg, result_data_list in groups]
+    regularizers, plot_data = list(map(list, (zip(*averages))))
+
     palette = ['ef233c', '008000', '0a85ed']
 
     plot_comparing_graph(palette, plot_data, regularizers, save_path, ylim)
