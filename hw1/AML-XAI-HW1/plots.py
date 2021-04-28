@@ -65,7 +65,7 @@ def plot_hyperparameters_search_graph(lambdas, palette, plot_data, save_path, yl
 
 def plot_comparing_graph(palette, plot_data, regularizers, save_path, ylim):
     linewidth = 1.5
-    plt.rcParams['figure.figsize'] = 6, 5
+    plt.rcParams['figure.figsize'] = 12, 5
     for i, data in enumerate(plot_data):
         plt.plot(data, linewidth=linewidth, color=f'#{palette[i]}',
                  label=f'{regularizers[i]}')

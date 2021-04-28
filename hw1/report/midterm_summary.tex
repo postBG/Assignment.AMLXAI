@@ -39,7 +39,7 @@ Seoul National University\\
 
 %%%%%%%%% BODY TEXT
 \section{Introduction}
-Elastic Weight Consolidation (EWC)~\cite{ewc} is a pioneering work that tackles continual learning problems. Even though many researchers have already validated EWC in their papers, we implement and reproduce EWC and compare it with L2 regularization. We conduct two experiments using CIFAR-100~\cite{cifar} and MNIST~\cite{mnist}: (a) hyperparameter searching, (b) comparing the effectiveness of EWC, L2 regularization, and no regularization. In these experiments, we learn the following three lessons. First, both regularization can alleviate \textit{catastrophic forgetting}. Second, the optimal hyperparameters can be highly different between datasets. For example, the optimal hyperparameter for CIFAR100 is 1.0. On the other hand, the optimal value is 100.0 for MNIST. Third, on simple datasets such as MNIST, EWC can be less effective than L2 regularization. 
+Elastic Weight Consolidation (EWC)~\cite{ewc} is a pioneering work that tackles continual learning problems. Even though many researchers have already validated EWC in their papers, we implement and reproduce EWC and compare it with L2 regularization. We conduct two experiments using CIFAR-100~\cite{cifar} and MNIST~\cite{mnist}: (a) hyperparameter searching, (b) comparing the effectiveness of EWC, L2 regularization, and no regularization. In these experiments, we learn the following three lessons. First, both regularization can alleviate \textit{catastrophic forgetting}. Second, the optimal hyperparameters can be highly different between datasets. For example, when we test on five tasks, the optimal hyperparameter for CIFAR-100 is 1.0 while the optimal value for MNIST is 100.0. Third, on simple datasets such as MNIST, EWC can be less effective than L2 regularization. 
 
 \section{Methods}\label{method}
 In this section, we summarize the methods that we implement for this assignment. Because our primary concerns are regularization-based continual learning methods, the loss functions have the same form as follows:
@@ -61,44 +61,69 @@ L2 regularization uses the following equation as its regularization term:
 We can interpret that L2 regularization does not consider the importance of each weight. We use L2 regularization to validate whether the EWC's importance estimation is helpful or not. No regularization or vanilla training does not utilize $L_{reg}$. 
 
 \section{Experiments}
-In this section, we describe the experiment settings and their results. First, we conduct experiments for finding the optimal value of $\lambda$ used for balancing $\mathcal{L}_{CE}$ and $\mathcal{L}_{reg}$. In the second experiment, we compare the three methods described in the section~\ref{method}. We follow the provided guideline for the experiments. We use Adam optimizer~\cite{adam}, 1e-3 as the learning rate, and batch size 256 for all the experiments. We use 20 and 60 epochs for MNIST~\cite{mnist} and CIFAR-100~\cite{cifar}, respectively. 
-
-\subsection{Hyperparameter Searching}\label{hyper_exp}
-In this experiments, we search the optimal $\lambda$ for each regularization methods.
-We use \{0.1, 0.5, 1.0, 10.0, 20.0, 40.0, 100.0, 200.0\} for the hyperparameters searching scope. Figure~\ref{hyper} shows the results of the experiments. The x-axis of each plot is the number of tasks learned so far, and the y-axis represents the average accuracy.  We fix the random seed as 0 for replacing another randomness. As we can observe, the smallest $\lambda$ shows the best average accuracy for L2 regularization. We can also observe that bigger $\lambda$ has detrimental effects on learning new tasks.
-On the other hand, the optimal $\lambda$ for EWC varies depending on datasets. For example, the optimal $\lambda$ for CIFAR-100 is 1.0, but the optimal value for MNIST is 200.0. The large gap between the two values implies that the complexity of given tasks can affect the importance of the regularization term. Furthermore, we can observe that EWC is less sensitive to the hyperparameter. 
-
+In this section, we describe the experiment settings and their results. First, we conduct experiments for finding the optimal value of $\lambda$ used for balancing $\mathcal{L}_{CE}$ and $\mathcal{L}_{reg}$. In the second experiment, we compare the three methods described in the section~\ref{method}. We follow the provided guideline for the experiments. We use Adam optimizer~\cite{adam}, 1e-3 as the learning rate, and batch size 256 for all the experiments. We use 20 and 60 epochs for MNIST~\cite{mnist} and CIFAR-100~\cite{cifar}, respectively. We use five tasks for MNIST and twenty tasks for CIFAR-100. 
 
 \begin{figure}[t]
     \centering
 	\begin{tabular}{c@{\hskip0.5cm}c}
 		\includegraphics[width=0.45\textwidth]{resources/ewc_CIFAR.eps}&%	
         \includegraphics[width=0.45\textwidth]{resources/l2_CIFAR.eps}\\%
-        (a) EWC CIFAR100 & (b) L2 CIFAR100\\
+        (a) EWC CIFAR-100 & (b) L2 CIFAR-100\\
         \includegraphics[width=0.45\textwidth]{resources/ewc_MNIST.eps}&%	
         \includegraphics[width=0.45\textwidth]{resources/l2_MNIST.eps}\\%
 		(c) EWC MNIST  & (d) L2 MNIST \\
 	\end{tabular}\vspace{0.2cm}
-	\caption{The results of the hyperparameters searching experiments. The x-axis of each plot is the number of tasks learned so far, and the y-axis represents the average accuracy.}
+	\caption{The results of the hyperparameters searching experiments using five tasks. We conduct these experiments for CIFAR-100, too. The x-axis of each plot is the number of tasks learned so far, and the y-axis represents the average accuracy.}
 	% \vspace{-0.4cm}
     \label{hyper}
 \end{figure}
 
-\subsection{Comparing Regularization Methods}
-Using the optimal $\lambda$ that we found in experiment~\ref{hyper_exp}, we compare the effectiveness of each regularization. As mentioned before, L2 regularization uses $\lambda=0.1$ for both datasets, and EWC uses $\lambda=1.0$ and $\lambda=200.0$ for CIFAR-100 and MNIST, respectively. We vary the random seed from 0 to 6 and average the accuracies for removing randomness. Figure~\ref{comp} displays the results of the experiments. As same as before, the x-axis represents the number of tasks learned so far, and the y-axis of each plot is the average accuracy.
-For CIFAR-100 (Figure~\ref{comp} (a)), EWC shows the best performance across all the stages with a high margin. Interestingly, L2 regularization shows slightly lower performance than vanilla learning until they reach the last task, which implies that L2 regularization is too hard for learning new tasks. 
-For MNIST (Figure~\ref{comp} (b)), L2 regularization exhibits better performance than EWC except for the last stage. This observation implies that EWC can be less effective when using it on a simple dataset or problem. In this experiment, the average accuracy increases after task 3 while the accuracy consistently decreases on CIFAR-100. Vanilla training shows the worst performance as we can expect.
+\subsection{Hyperparameter Searching}\label{hyper_exp}
+In this experiment, we search the optimal $\lambda$ for each regularization method. First, We use \{0.1, 0.5, 1.0, 10.0, 20.0, 40.0, 100.0, 200.0\} for the hyperparameters searching scope when there are five tasks. Then, for CIFAR-100, we search the finer hyperparameters scope \{0.1, 0.2, 0.5, 1.0, 2.0\}. Figure~\ref{hyper} and Figure~\ref{hyper2} show the results of the experiments. The x-axis of each plot is the number of tasks learned so far, and the y-axis represents the average accuracy.  We fix the random seed as 0 for replacing another randomness. As we can observe, the smallest $\lambda$ shows the best average accuracy for L2 regularization. We can also observe that bigger $\lambda$ has detrimental effects on learning new tasks.
+
+On the other hand, the optimal $\lambda$ for EWC varies depending on datasets. For example, the optimal $\lambda$ for CIFAR-100 is 1.0, but the optimal value for MNIST is 200.0 in the five tasks experiment. The large gap between the two values implies that the complexity of given tasks can affect the importance of the regularization term. Furthermore, we can observe that EWC is less sensitive to the hyperparameter. We further search the optimal hyperparameter using twenty tasks on the CIFAR-100 dataset. The results are shown in Figure~\ref{hyper2}. In this experiment, we find that 2.0 is optimal for both L2 and EWC. Therefore, we use these values for the following experiments.
+
+
 
 \begin{figure}[t]
+    \centering
+	\begin{tabular}{c@{\hskip0.5cm}c}
+		\includegraphics[width=0.45\textwidth]{resources/ewc_shit.eps}&%	
+        \includegraphics[width=0.45\textwidth]{resources/l2_shit.eps}\\%
+        (a) EWC CIFAR-100 & (b) L2 CIFAR-100\\
+	\end{tabular}\vspace{0.2cm}
+	\caption{The CIFAR-100 results of the hyperparameters searching experiments using twenty tasks. The x-axis of each plot is the number of tasks learned so far, and the y-axis represents the average accuracy.}
+	% \vspace{-0.4cm}
+    \label{hyper2}
+\end{figure}
+
+\subsection{Comparing Regularization Methods}
+Using the optimal $\lambda$ that we found in experiment~\ref{hyper_exp}, we compare the effectiveness of each regularization. As mentioned before, L2 regularization uses $\lambda=0.1$ for both datasets, and EWC uses $\lambda=1.0$ and $\lambda=200.0$ for CIFAR-100 and MNIST, respectively. We vary the random seed from 0 to 6 and average the accuracies for removing randomness. Figure~\ref{comp} and Figure~\ref{comp2} display the results of the experiments. As same as before, the x-axis represents the number of tasks learned so far, and the y-axis of each plot is the average accuracy.
+
+For CIFAR-100 (Figure~\ref{comp} (a)), EWC shows the best performance across all the stages with a high margin. Interestingly, L2 regularization shows slightly lower performance than vanilla learning until they reach the last task, which implies that L2 regularization is too hard for learning new tasks. In Figure~\ref{comp2}, we observe the same results on the experimental results that used twenty tasks.
+
+For MNIST (Figure~\ref{comp} (b)), L2 regularization exhibits better performance than EWC except for the last stage. This observation implies that EWC can be less effective when using it on a simple dataset or problem. In this experiment, the average accuracy increases after task 3 while the accuracy consistently decreases on CIFAR-100. Vanilla training shows the worst performance as we can expect.
+
+\begin{figure}[b]
     \centering
 	\begin{tabular}{c@{\hskip0.5cm}c}
 		\includegraphics[width=0.45\textwidth]{resources/comp_CIFAR.eps}&%	
         \includegraphics[width=0.45\textwidth]{resources/comp_MNIST.eps}\\%
         (a) Comparing on CIFAR100 & (b) Comparing on MNIST\\
 	\end{tabular}\vspace{0.2cm}
-	\caption{The results of the comparison experiments. The x-axis and the y-axis represent the number of tasks learned so far and the average accuracy, respectively.}
+	\caption{The CIFAR-100 and MNIST results of the comparison experiments using five tasks. The x-axis and the y-axis represent the number of tasks learned so far and the average accuracy, respectively.}
 	% \vspace{-0.4cm}
 	\label{comp}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+	\begin{tabular}{c}
+		\includegraphics[width=0.9\textwidth]{resources/comp_cifar20.eps}\\
+	\end{tabular}\vspace{0.2cm}
+	\caption{The CIFAR-100 results of the comparison experiments using twenty tasks. The x-axis and the y-axis represent the number of tasks learned so far and the average accuracy, respectively.}
+	% \vspace{-0.4cm}
+	\label{comp2}
 \end{figure}
 
 \section{Conclusion}

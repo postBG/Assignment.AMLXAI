@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.9)  22 APR 2021 16:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.9)  28 APR 2021 19:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -350,16 +350,6 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 38
  (d:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 68.
- (d:/texlive/2020/texmf-dist/tex/latex/psnfss/omsptm.fd
-File: omsptm.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 68.
- [1
-
-
-{d:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Package epstopdf Info: Source file: <resources/ewc_CIFAR.eps>
 (epstopdf)                    date: 2021-04-20 23:49:37
 (epstopdf)                    size: 20912 bytes
@@ -367,12 +357,12 @@ Package epstopdf Info: Source file: <resources/ewc_CIFAR.eps>
 (epstopdf)                    date: 2021-04-21 01:32:34
 (epstopdf)                    size: 11597 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/ewc_CIFAR-eps-converted-to.pdf resources/ewc_CIFAR.eps>
-(epstopdf)             \includegraphics on input line 75.
+(epstopdf)             \includegraphics on input line 69.
 Package epstopdf Info: Output file is already uptodate.
-<resources/ewc_CIFAR-eps-converted-to.pdf, id=38, 433.62pt x 361.35pt>
+<resources/ewc_CIFAR-eps-converted-to.pdf, id=12, 433.62pt x 361.35pt>
 File: resources/ewc_CIFAR-eps-converted-to.pdf Graphic file (type pdf)
 <use resources/ewc_CIFAR-eps-converted-to.pdf>
-Package pdftex.def Info: resources/ewc_CIFAR-eps-converted-to.pdf  used on input line 75.
+Package pdftex.def Info: resources/ewc_CIFAR-eps-converted-to.pdf  used on input line 69.
 (pdftex.def)             Requested size: 223.58379pt x 186.32063pt.
 Package epstopdf Info: Source file: <resources/l2_CIFAR.eps>
 (epstopdf)                    date: 2021-04-20 23:49:32
@@ -381,12 +371,12 @@ Package epstopdf Info: Source file: <resources/l2_CIFAR.eps>
 (epstopdf)                    date: 2021-04-21 01:32:36
 (epstopdf)                    size: 11603 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/l2_CIFAR-eps-converted-to.pdf resources/l2_CIFAR.eps>
-(epstopdf)             \includegraphics on input line 76.
+(epstopdf)             \includegraphics on input line 70.
 Package epstopdf Info: Output file is already uptodate.
-<resources/l2_CIFAR-eps-converted-to.pdf, id=39, 433.62pt x 361.35pt>
+<resources/l2_CIFAR-eps-converted-to.pdf, id=13, 433.62pt x 361.35pt>
 File: resources/l2_CIFAR-eps-converted-to.pdf Graphic file (type pdf)
 <use resources/l2_CIFAR-eps-converted-to.pdf>
-Package pdftex.def Info: resources/l2_CIFAR-eps-converted-to.pdf  used on input line 76.
+Package pdftex.def Info: resources/l2_CIFAR-eps-converted-to.pdf  used on input line 70.
 (pdftex.def)             Requested size: 223.58379pt x 186.32063pt.
 Package epstopdf Info: Source file: <resources/ewc_MNIST.eps>
 (epstopdf)                    date: 2021-04-20 23:45:49
@@ -395,12 +385,12 @@ Package epstopdf Info: Source file: <resources/ewc_MNIST.eps>
 (epstopdf)                    date: 2021-04-21 01:32:37
 (epstopdf)                    size: 12753 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/ewc_MNIST-eps-converted-to.pdf resources/ewc_MNIST.eps>
-(epstopdf)             \includegraphics on input line 78.
+(epstopdf)             \includegraphics on input line 72.
 Package epstopdf Info: Output file is already uptodate.
-<resources/ewc_MNIST-eps-converted-to.pdf, id=40, 433.62pt x 361.35pt>
+<resources/ewc_MNIST-eps-converted-to.pdf, id=14, 433.62pt x 361.35pt>
 File: resources/ewc_MNIST-eps-converted-to.pdf Graphic file (type pdf)
 <use resources/ewc_MNIST-eps-converted-to.pdf>
-Package pdftex.def Info: resources/ewc_MNIST-eps-converted-to.pdf  used on input line 78.
+Package pdftex.def Info: resources/ewc_MNIST-eps-converted-to.pdf  used on input line 72.
 (pdftex.def)             Requested size: 223.58379pt x 186.32063pt.
 Package epstopdf Info: Source file: <resources/l2_MNIST.eps>
 (epstopdf)                    date: 2021-04-20 23:45:18
@@ -409,13 +399,51 @@ Package epstopdf Info: Source file: <resources/l2_MNIST.eps>
 (epstopdf)                    date: 2021-04-21 01:32:39
 (epstopdf)                    size: 12764 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/l2_MNIST-eps-converted-to.pdf resources/l2_MNIST.eps>
-(epstopdf)             \includegraphics on input line 79.
+(epstopdf)             \includegraphics on input line 73.
 Package epstopdf Info: Output file is already uptodate.
-<resources/l2_MNIST-eps-converted-to.pdf, id=41, 433.62pt x 361.35pt>
+<resources/l2_MNIST-eps-converted-to.pdf, id=15, 433.62pt x 361.35pt>
 File: resources/l2_MNIST-eps-converted-to.pdf Graphic file (type pdf)
 <use resources/l2_MNIST-eps-converted-to.pdf>
-Package pdftex.def Info: resources/l2_MNIST-eps-converted-to.pdf  used on input line 79.
+Package pdftex.def Info: resources/l2_MNIST-eps-converted-to.pdf  used on input line 73.
 (pdftex.def)             Requested size: 223.58379pt x 186.32063pt.
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 82.
+ (d:/texlive/2020/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
+ [1
+
+
+{d:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Package epstopdf Info: Source file: <resources/ewc_shit.eps>
+(epstopdf)                    date: 2021-04-28 17:04:49
+(epstopdf)                    size: 26456 bytes
+(epstopdf)             Output file: <resources/ewc_shit-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-04-28 17:12:24
+(epstopdf)                    size: 13310 bytes
+(epstopdf)             Command: <repstopdf --outfile=resources/ewc_shit-eps-converted-to.pdf resources/ewc_shit.eps>
+(epstopdf)             \includegraphics on input line 91.
+Package epstopdf Info: Output file is already uptodate.
+<resources/ewc_shit-eps-converted-to.pdf, id=44, 867.24pt x 361.35pt>
+File: resources/ewc_shit-eps-converted-to.pdf Graphic file (type pdf)
+<use resources/ewc_shit-eps-converted-to.pdf>
+Package pdftex.def Info: resources/ewc_shit-eps-converted-to.pdf  used on input line 91.
+(pdftex.def)             Requested size: 223.58379pt x 93.1548pt.
+Package epstopdf Info: Source file: <resources/l2_shit.eps>
+(epstopdf)                    date: 2021-04-28 17:04:19
+(epstopdf)                    size: 26441 bytes
+(epstopdf)             Output file: <resources/l2_shit-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-04-28 17:12:26
+(epstopdf)                    size: 13292 bytes
+(epstopdf)             Command: <repstopdf --outfile=resources/l2_shit-eps-converted-to.pdf resources/l2_shit.eps>
+(epstopdf)             \includegraphics on input line 92.
+Package epstopdf Info: Output file is already uptodate.
+<resources/l2_shit-eps-converted-to.pdf, id=45, 867.24pt x 361.35pt>
+File: resources/l2_shit-eps-converted-to.pdf Graphic file (type pdf)
+<use resources/l2_shit-eps-converted-to.pdf>
+Package pdftex.def Info: resources/l2_shit-eps-converted-to.pdf  used on input line 92.
+(pdftex.def)             Requested size: 223.58379pt x 93.1548pt.
  [2 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/ewc_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/l2_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/ewc_MNIST-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/l2_MNIST-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <resources/comp_CIFAR.eps>
 (epstopdf)                    date: 2021-04-22 15:02:39
@@ -424,12 +452,12 @@ Package epstopdf Info: Source file: <resources/comp_CIFAR.eps>
 (epstopdf)                    date: 2021-04-22 15:06:46
 (epstopdf)                    size: 11774 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/comp_CIFAR-eps-converted-to.pdf resources/comp_CIFAR.eps>
-(epstopdf)             \includegraphics on input line 95.
+(epstopdf)             \includegraphics on input line 110.
 Package epstopdf Info: Output file is already uptodate.
-<resources/comp_CIFAR-eps-converted-to.pdf, id=170, 433.62pt x 361.35pt>
+<resources/comp_CIFAR-eps-converted-to.pdf, id=175, 433.62pt x 361.35pt>
 File: resources/comp_CIFAR-eps-converted-to.pdf Graphic file (type pdf)
 <use resources/comp_CIFAR-eps-converted-to.pdf>
-Package pdftex.def Info: resources/comp_CIFAR-eps-converted-to.pdf  used on input line 95.
+Package pdftex.def Info: resources/comp_CIFAR-eps-converted-to.pdf  used on input line 110.
 (pdftex.def)             Requested size: 223.58379pt x 186.32063pt.
 Package epstopdf Info: Source file: <resources/comp_MNIST.eps>
 (epstopdf)                    date: 2021-04-22 15:05:45
@@ -438,34 +466,48 @@ Package epstopdf Info: Source file: <resources/comp_MNIST.eps>
 (epstopdf)                    date: 2021-04-22 15:06:42
 (epstopdf)                    size: 12424 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/comp_MNIST-eps-converted-to.pdf resources/comp_MNIST.eps>
-(epstopdf)             \includegraphics on input line 96.
+(epstopdf)             \includegraphics on input line 111.
 Package epstopdf Info: Output file is already uptodate.
-<resources/comp_MNIST-eps-converted-to.pdf, id=171, 433.62pt x 361.35pt>
+<resources/comp_MNIST-eps-converted-to.pdf, id=176, 433.62pt x 361.35pt>
 File: resources/comp_MNIST-eps-converted-to.pdf Graphic file (type pdf)
 <use resources/comp_MNIST-eps-converted-to.pdf>
-Package pdftex.def Info: resources/comp_MNIST-eps-converted-to.pdf  used on input line 96.
+Package pdftex.def Info: resources/comp_MNIST-eps-converted-to.pdf  used on input line 111.
 (pdftex.def)             Requested size: 223.58379pt x 186.32063pt.
- (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.bbl (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.brf)
+Package epstopdf Info: Source file: <resources/comp_cifar20.eps>
+(epstopdf)                    date: 2021-04-28 19:12:22
+(epstopdf)                    size: 24090 bytes
+(epstopdf)             Output file: <resources/comp_cifar20-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-04-28 19:12:46
+(epstopdf)                    size: 13478 bytes
+(epstopdf)             Command: <repstopdf --outfile=resources/comp_cifar20-eps-converted-to.pdf resources/comp_cifar20.eps>
+(epstopdf)             \includegraphics on input line 122.
+Package epstopdf Info: Output file is already uptodate.
+<resources/comp_cifar20-eps-converted-to.pdf, id=177, 867.24pt x 361.35pt>
+File: resources/comp_cifar20-eps-converted-to.pdf Graphic file (type pdf)
+<use resources/comp_cifar20-eps-converted-to.pdf>
+Package pdftex.def Info: resources/comp_cifar20-eps-converted-to.pdf  used on input line 122.
+(pdftex.def)             Requested size: 447.16759pt x 186.32063pt.
+ [3 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/ewc_shit-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/l2_shit-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/comp_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/comp_MNIST-eps-converted-to.pdf>] (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.bbl (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.brf)
 \tf@brf=\write3
 \openout3 = `midterm_summary.brf'.
 
-) [3 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/comp_CIFAR-eps-converted-to.pdf> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/comp_MNIST-eps-converted-to.pdf>] (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.aux)
+) [4 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/resources/comp_cifar20-eps-converted-to.pdf>] (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.aux)
 Package rerunfilecheck Info: File `midterm_summary.brf' has not changed.
 (rerunfilecheck)             Checksum: 849C810F769FCE2700EDED6A0F8A2CFA;257.
  ) 
 Here is how much of TeX's memory you used:
- 7378 strings out of 479485
- 109186 string characters out of 5875916
- 421759 words of memory out of 5000000
- 24203 multiletter control sequences out of 15000+600000
+ 7401 strings out of 479485
+ 109940 string characters out of 5875916
+ 422283 words of memory out of 5000000
+ 24220 multiletter control sequences out of 15000+600000
  556350 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 91i,12n,98p,965b,330s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 91i,12n,98p,980b,330s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.pdf (3 pages, 160013 bytes).
+Output written on c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw1/report/midterm_summary.pdf (4 pages, 191723 bytes).
 PDF statistics:
- 281 PDF objects out of 1000 (max. 8388607)
- 109 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 385 PDF objects out of 1000 (max. 8388607)
+ 131 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
