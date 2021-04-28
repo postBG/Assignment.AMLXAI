@@ -43,7 +43,7 @@ def retrieve_reg_from_path(path):
 def format_plot(plot_data, save_path, ylim):
     task_length = len(plot_data[0])
     xticks = list(range(task_length))
-    plt.xticks(xticks, labels=[f'task {t + 1}' for t in xticks])
+    plt.xticks(xticks, labels=[f't{t + 1}' for t in xticks])
     plt.legend(loc='lower left')
     plt.xlabel('Task')
     plt.ylabel('Acc. (%)')
@@ -56,7 +56,7 @@ def format_plot(plot_data, save_path, ylim):
 
 def plot_hyperparameters_search_graph(lambdas, palette, plot_data, save_path, ylim=None):
     linewidth = 1.5
-    plt.rcParams['figure.figsize'] = 6, 5
+    plt.rcParams['figure.figsize'] = 12, 5
     for i, data in enumerate(plot_data):
         plt.plot(data, linewidth=linewidth, color=f'#{palette[i]}',
                  label=r'$\lambda = {}$'.format(lambdas[i]))
