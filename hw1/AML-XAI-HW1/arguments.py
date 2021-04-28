@@ -17,7 +17,7 @@ def get_args():
     parser.add_argument('--seed', type=int, default=0,
                         help='Seeds values to be used; seed introduces randomness by changing order of classes')
     parser.add_argument('--nepochs', type=int, default=60, help='Number of epochs for each increment')
-    parser.add_argument('--tasknum', default=5, type=int, help='(default=%(default)s)')
+    parser.add_argument('--tasknum', default=20, type=int, help='(default=%(default)s)')
     parser.add_argument('--date', type=str, default='', help='(default=%(default)s)')
     parser.add_argument('--output', default='', type=str, required=False, help='(default=%(default)s)')
     parser.add_argument('--dataset', default='CIFAR100', type=str,
