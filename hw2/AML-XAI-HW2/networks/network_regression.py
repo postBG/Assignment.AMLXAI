@@ -4,7 +4,6 @@ from torch.nn import functional as F
 import numpy as np
 
 
-
 class mlp(nn.Module):
     def __init__(self, ninput=1, noutput=1):
         super(mlp, self).__init__()
@@ -34,16 +33,16 @@ class mlp(nn.Module):
                           'flatten', 'reshape', 'leakyrelu', 'sigmoid']:
                 continue
             else:
-                raise NotImplementedError        
+                raise NotImplementedError
 
     def extra_repr(self):
         info = ''
 
         for name, param in self.config:
             if name is 'linear':
-                tmp = 'linear:(in:%d, out:%d)'%(param[1], param[0])
+                tmp = 'linear:(in:%d, out:%d)' % (param[1], param[0])
                 info += tmp + '\n'
-            
+
             elif name in ['flatten', 'tanh', 'relu', 'upsample', 'reshape', 'sigmoid', 'use_logits', 'bn']:
                 tmp = name + ':' + str(tuple(param))
                 info += tmp + '\n'
@@ -67,7 +66,7 @@ class mlp(nn.Module):
         bn_idx = 0
 
         for name, param in self.config:
-            
+
             if name is 'linear':
                 w, b = vars[idx], vars[idx + 1]
                 x = F.linear(x, w, b)
@@ -105,5 +104,4 @@ class mlp(nn.Module):
         override this function since initial parameters will return with a generator.
         :return:
         """
-        return self.vars    
-
+        return self.vars

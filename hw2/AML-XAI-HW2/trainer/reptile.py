@@ -1,12 +1,12 @@
-import  torch
-from    torch import nn
-from    torch import optim
-from    torch.nn import functional as F
-from    torch.utils.data import TensorDataset, DataLoader
-from    torch import optim
-import  numpy as np
+import torch
+from torch import nn
+from torch import optim
+from torch.nn import functional as F
+from torch.utils.data import TensorDataset, DataLoader
+from torch import optim
+import numpy as np
 
-from    copy import deepcopy
+from copy import deepcopy
 import trainer
 
 
@@ -14,19 +14,20 @@ class Trainer(trainer.GenericTrainer):
     """
     Meta Learner
     """
+
     def __init__(self, model, args):
         """
 
         :param args:
         """
         super(Trainer, self).__init__(model, args)
-        self.inner_optim = optim.Adam(self.net.parameters(), lr=self.inner_lr, betas=(0,0.999))        
-        
+        self.inner_optim = optim.Adam(self.net.parameters(), lr=self.inner_lr, betas=(0, 0.999))
+
         if self.args.dataset == 'omniglot':
             self.loss = nn.CrossEntropyLoss()
         elif self.args.dataset == 'sine':
             self.loss = nn.MSELoss()
-        
+
     def _train_epoch(self, x_spt, y_spt, x_qry, y_qry):
         """
         You should combine x_spt and y_spt to make data loader that produces mini-batches
@@ -40,7 +41,7 @@ class Trainer(trainer.GenericTrainer):
          - Test target data
         :return: 'results' (a list)
         """
-        
+
         # results for meta-training
         # Sine wave: MSE loss for all tasks
         # Omniglot: Average accuracy for all tasks
@@ -49,18 +50,17 @@ class Trainer(trainer.GenericTrainer):
         # results[0]: results for pre-update model
         # results[1:]: results for the adapted model at each inner loop step
         results = [0 for _ in range(self.inner_step + 1)]
-        
-        x = torch.cat((x_spt, x_qry),1)
-        y = torch.cat((y_spt, y_qry),1)
-        
+
+        x = torch.cat((x_spt, x_qry), 1)
+        y = torch.cat((y_spt, y_qry), 1)
+
         ##########################################################################################
-        
+
         # Write your code here
-        
+
         ##########################################################################################
 
         return results
-
 
     def _finetunning(self, x_spt, y_spt, x_qry, y_qry):
         """
@@ -74,7 +74,7 @@ class Trainer(trainer.GenericTrainer):
          - Test target data
         :return: 'results' (a list)
         """
-        
+
         # results for meta-test
         # Sine wave: MSE loss for current task
         # Omniglot: Average accuracy for current task
@@ -83,11 +83,11 @@ class Trainer(trainer.GenericTrainer):
         # results[0]: results for pre-update model
         # results[1:]: results for the adapted model at each inner loop step
         results = [0 for _ in range(self.inner_step + 1)]
-        
+
         ##########################################################################################
-        
+
         # Write your code here
-        
+
         ##########################################################################################
-        
+
         return results

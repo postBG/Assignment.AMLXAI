@@ -1,9 +1,8 @@
-import  os.path
-import  numpy as np
+import os.path
+import numpy as np
 
 
 class SineNShot:
-
     def __init__(self, batchsz, k_shot, k_query):
         """
         Different from mnistNShot, the
@@ -22,7 +21,6 @@ class SineNShot:
         self.datasets_cache = {"train": self.load_data_cache(),  # current epoch data cached
                                "test": self.load_data_cache()}
 
-
     def load_data_cache(self):
         """
         Collects several batches data for N-shot learning
@@ -40,22 +38,20 @@ class SineNShot:
             for i in range(self.batchsz):  # one batch means one set
 
                 x_spt, y_spt, x_qry, y_qry = [], [], [], []
-                
+
                 amplitude = np.random.uniform(0.1, 5)
                 phase = np.random.uniform(0, np.pi)
-                
+
                 x_spt = np.random.rand(setsz) * 10 - 5
                 x_qry = np.random.rand(querysz) * 10 - 5
                 y_spt = np.sin(x_spt + phase) * amplitude
                 y_qry = np.sin(x_qry + phase) * amplitude
-                
 
                 # append [sptsz, 1] => [b, setsz, 1]
                 x_spts.append(x_spt)
                 y_spts.append(y_spt)
                 x_qrys.append(x_qry)
                 y_qrys.append(y_qry)
-
 
             # [b, setsz, 1]
             x_spts = np.array(x_spts).astype(np.float32).reshape(self.batchsz, setsz, 1)
@@ -83,4 +79,3 @@ class SineNShot:
         self.indexes[mode] += 1
 
         return next_batch
-

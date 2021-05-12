@@ -1,12 +1,11 @@
-from    data_handler.omniglot import Omniglot
-import  torchvision.transforms as transforms
-from    PIL import Image
-import  os.path
-import  numpy as np
+from data_handler.omniglot import Omniglot
+import torchvision.transforms as transforms
+from PIL import Image
+import os.path
+import numpy as np
 
 
 class OmniglotNShot:
-
     def __init__(self, root, batchsz, n_way, k_shot, k_query, imgsz, trainer='maml'):
         """
         Different from mnistNShot, the
@@ -27,7 +26,7 @@ class OmniglotNShot:
                                                             lambda x: x.resize((imgsz, imgsz)),
                                                             lambda x: np.reshape(x, (imgsz, imgsz, 1)),
                                                             lambda x: np.transpose(x, [2, 0, 1]),
-                                                            lambda x: x/255.])
+                                                            lambda x: x / 255.])
                               )
 
             temp = dict()  # {label:img1, img2..., 20 imgs, label2: img1, img2,... in total, 1623 label}
@@ -65,7 +64,7 @@ class OmniglotNShot:
         self.n_way = n_way  # n way
         self.k_shot = k_shot  # k shot
         self.k_query = k_query  # k query
-        assert (k_shot + k_query) <=20
+        assert (k_shot + k_query) <= 20
 
         # save pointer of current read batch in total cache
         self.indexes = {"train": 0, "test": 0}
@@ -87,7 +86,7 @@ class OmniglotNShot:
         self.std = np.std(self.x_train)
         self.max = np.max(self.x_train)
         self.min = np.min(self.x_train)
-        
+
         self.x_train = (self.x_train - self.mean) / self.std
         self.x_test = (self.x_test - self.mean) / self.std
 
@@ -95,7 +94,6 @@ class OmniglotNShot:
         self.std = np.std(self.x_train)
         self.max = np.max(self.x_train)
         self.min = np.min(self.x_train)
-
 
     def load_data_cache(self, data_pack, flag=False):
         """
@@ -121,7 +119,6 @@ class OmniglotNShot:
                 selected_cls = np.random.choice(data_pack.shape[0], self.n_way, False)
 
                 for j, cur_class in enumerate(selected_cls):
-
                     selected_img = np.random.choice(20, self.k_shot + k_query, False)
 
                     # meta-training and meta-test
@@ -144,7 +141,6 @@ class OmniglotNShot:
                 x_qrys.append(x_qry)
                 y_qrys.append(y_qry)
 
-
             # [b, setsz, 1, 84, 84]
             x_spts = np.array(x_spts).astype(np.float32).reshape(self.batchsz, setsz, 1, self.resize, self.resize)
             y_spts = np.array(y_spts).astype(np.int).reshape(self.batchsz, setsz)
@@ -166,7 +162,7 @@ class OmniglotNShot:
         if self.indexes[mode] >= len(self.datasets_cache[mode]):
             self.indexes[mode] = 0
             if mode == 'train' and self.trainer == 'reptile':
-                flag =True
+                flag = True
             else:
                 flag = False
             self.datasets_cache[mode] = self.load_data_cache(self.datasets[mode], flag)
@@ -177,14 +173,11 @@ class OmniglotNShot:
         return next_batch
 
 
-
-
-
 if __name__ == '__main__':
 
-    import  time
-    import  torch
-    import  visdom
+    import time
+    import torch
+    import visdom
 
     # plt.ion()
     viz = visdom.Visdom(env='omniglot_view')
@@ -194,7 +187,6 @@ if __name__ == '__main__':
     for i in range(1000):
         x_spt, y_spt, x_qry, y_qry = db.next('train')
 
-
         # [b, setsz, h, w, c] => [b, setsz, c, w, h] => [b, setsz, 3c, w, h]
         x_spt = torch.from_numpy(x_spt)
         x_qry = torch.from_numpy(x_qry)
@@ -202,12 +194,9 @@ if __name__ == '__main__':
         y_qry = torch.from_numpy(y_qry)
         batchsz, setsz, c, h, w = x_spt.size()
 
-
         viz.images(x_spt[0], nrow=5, win='x_spt', opts=dict(title='x_spt'))
         viz.images(x_qry[0], nrow=15, win='x_qry', opts=dict(title='x_qry'))
         viz.text(str(y_spt[0]), win='y_spt', opts=dict(title='y_spt'))
         viz.text(str(y_qry[0]), win='y_qry', opts=dict(title='y_qry'))
 
-
         time.sleep(10)
-

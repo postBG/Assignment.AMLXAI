@@ -1,19 +1,19 @@
-import  torch
-from    torch import nn
-from    torch import optim
-from    torch.nn import functional as F
-from    torch import optim
-import  numpy as np
+import torch
+from torch import nn
+from torch import optim
+from torch.nn import functional as F
+from torch import optim
+import numpy as np
 
-from    copy import deepcopy
+from copy import deepcopy
 import trainer
-
 
 
 class Trainer(trainer.GenericTrainer):
     """
     Meta Learner
     """
+
     def __init__(self, model, args):
         """
         :param args:
@@ -39,7 +39,7 @@ class Trainer(trainer.GenericTrainer):
          - Test target data
         :return: 'results' (a list)
         """
-        
+
         # results for meta-training
         # Sine wave: MSE loss for all tasks
         # Omniglot: Average accuracy for all tasks
@@ -48,15 +48,14 @@ class Trainer(trainer.GenericTrainer):
         # results[0]: results for pre-update model
         # results[1:]: results for the adapted model at each inner loop step
         results = [0 for _ in range(self.inner_step + 1)]
-        
-        ##########################################################################################
-        
-        # Write your code here
-        
-        ##########################################################################################
-        
-        return results
 
+        ##########################################################################################
+
+        # Write your code here
+
+        ##########################################################################################
+
+        return results
 
     def _finetunning(self, x_spt, y_spt, x_qry, y_qry):
         """
@@ -70,7 +69,7 @@ class Trainer(trainer.GenericTrainer):
          - Test target data
         :return: 'results' (a list)
         """
-        
+
         # results for meta-test
         # Sine wave: MSE loss for current task
         # Omniglot: Average accuracy for current task
@@ -79,13 +78,11 @@ class Trainer(trainer.GenericTrainer):
         # results[0]: results for pre-update model
         # results[1:]: results for the adapted model at each inner loop step
         results = [0 for _ in range(self.inner_step + 1)]
-        
+
         ##########################################################################################
-        
+
         # Write your code here
-        
+
         ##########################################################################################
-        
+
         return results
-
-
