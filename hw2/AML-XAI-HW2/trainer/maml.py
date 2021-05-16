@@ -88,8 +88,10 @@ class Trainer(trainer.GenericTrainer):
 
         return accuracies
 
-    def _evaluate(self, weights, x, y):
-        logits = self.net(x, weights, bn_training=True)
+    def _evaluate(self, weights, x, y, net=None):
+        if net is None:
+            net = self.net
+        logits = net(x, weights, bn_training=True)
         loss = self.loss(logits, y)
 
         preds = F.softmax(logits, dim=1).argmax(dim=1)
@@ -117,12 +119,34 @@ class Trainer(trainer.GenericTrainer):
         # The components in 'results' are as follows:
         # results[0]: results for pre-update model
         # results[1:]: results for the adapted model at each inner loop step
-        results = [0 for _ in range(self.inner_step + 1)]
+        corrects = [0 for _ in range(self.inner_step + 1)]
+        losses_q = [0 for _ in range(self.inner_step + 1)]
 
-        ##########################################################################################
+        task_num, setsz, _, _, _ = x_spt.size()
 
-        # Write your code here
+        net = deepcopy(self.net)
 
-        ##########################################################################################
+        # pre-update
+        with torch.no_grad():
+            loss_q, correct = self._evaluate(net.parameters(), x_qry, y_qry)
+            losses_q[0] += loss_q.item()
+            corrects[0] += correct
 
-        return results
+        fast_weights = net.parameters()
+        for j in range(self.inner_step_test):
+            # the first update
+            logits = net(x_spt, fast_weights, bn_training=True)
+            loss = self.loss(logits, y_spt)
+            grad = torch.autograd.grad(loss, fast_weights)
+            fast_weights = list(map(lambda p, gradient: p - self.inner_lr * gradient, zip(fast_weights, grad)))
+
+            with torch.no_grad():
+                loss_q, correct = self._evaluate(fast_weights, x_qry, y_qry, net=net)
+                losses_q[j + 1] += loss_q.item()
+                corrects[j + 1] += correct
+
+        querysz = x_qry.size(0)
+        accuracies = np.array(corrects) / querysz
+
+        del net
+        return accuracies
