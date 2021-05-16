@@ -49,6 +49,8 @@ class Trainer(trainer.GenericTrainer):
         # results[1:]: results for the adapted model at each inner loop step
 
         # i: num corrects and losses after i updates
+        need_second_order = self.args.trainer == 'maml'
+
         corrects = [0 for _ in range(self.inner_step + 1)]
         losses_q = [0 for _ in range(self.inner_step + 1)]
 
@@ -65,7 +67,7 @@ class Trainer(trainer.GenericTrainer):
                 # the first update
                 logits = self.net(x_spt[i], fast_weights, bn_training=True)
                 loss = self.loss(logits, y_spt[i])
-                grad = torch.autograd.grad(loss, fast_weights)
+                grad = torch.autograd.grad(loss, fast_weights, create_graph=need_second_order)
                 fast_weights = list(map(lambda p, gradient: p - self.inner_lr * gradient, zip(fast_weights, grad)))
 
                 loss_q, correct = self._evaluate(fast_weights, x_qry[i], y_qry[i])
