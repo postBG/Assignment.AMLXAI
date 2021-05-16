@@ -62,9 +62,7 @@ class GenericTrainer:
                     # test
                     x_spt, y_spt, x_qry, y_qry = dataloader.next('test')
                     x_spt, y_spt, x_qry, y_qry = torch.from_numpy(x_spt).to(self.device), torch.from_numpy(y_spt).to(
-                        self.device), \
-                                                 torch.from_numpy(x_qry).to(self.device), torch.from_numpy(y_qry).to(
-                        self.device)
+                        self.device), torch.from_numpy(x_qry).to(self.device), torch.from_numpy(y_qry).to(self.device)
 
                     # split to single task each time
                     for x_spt_one, y_spt_one, x_qry_one, y_qry_one in zip(x_spt, y_spt, x_qry, y_qry):
