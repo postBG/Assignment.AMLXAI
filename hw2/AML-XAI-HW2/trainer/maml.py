@@ -1,11 +1,11 @@
+from copy import deepcopy
+
+import numpy as np
 import torch
 from torch import nn
 from torch import optim
 from torch.nn import functional as F
-from torch import optim
-import numpy as np
 
-from copy import deepcopy
 import trainer
 
 
