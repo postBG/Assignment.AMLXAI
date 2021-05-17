@@ -1,5 +1,4 @@
 import argparse
-import torch
 
 
 def get_args():
