@@ -65,7 +65,7 @@ class Trainer(trainer.GenericTrainer):
             fast_weights = self.net.parameters()
             for i in range(self.inner_step):
                 # the first update
-                logits = self.net(x_spt[t], fast_weights, bn_training=True)
+                logits = self.net(x_spt[t], fast_weights)
                 loss = self.loss(logits, y_spt[t])
                 grad = torch.autograd.grad(loss, fast_weights, create_graph=need_second_order)
                 fast_weights = list(map(lambda p, gradient: p - self.inner_lr * gradient, zip(fast_weights, grad)))
@@ -91,7 +91,7 @@ class Trainer(trainer.GenericTrainer):
     def _evaluate(self, weights, x, y, net=None):
         if net is None:
             net = self.net
-        logits = net(x, weights, bn_training=True)
+        logits = net(x, weights)
         loss = self.loss(logits, y)
 
         preds = F.softmax(logits, dim=1).argmax(dim=1)
