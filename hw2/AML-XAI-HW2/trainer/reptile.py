@@ -1,3 +1,5 @@
+import copy
+
 import torch
 from torch import nn
 from torch import optim
@@ -8,6 +10,27 @@ import numpy as np
 
 from copy import deepcopy
 import trainer
+
+
+def _calculate_weights_diff(new_net, old_net):
+    old_net_weights = {n: p for n, p in old_net.named_parameters()}
+    diffs = {name: p - old_net_weights[name] for name, p in new_net.named_parameters()}
+    return diffs
+
+
+def _add_named_parameters(named_param1, named_param2):
+    for name, p in named_param2.items():
+        named_param1[name] += p
+
+    return named_param1
+
+
+def _update_network_parameters(old_net, weights_diff, inner_step, lr):
+    updated_weights = {}
+    for name, p in old_net.named_parameters():
+        updated_weights[name] = p + lr * (weights_diff[name] / inner_step)
+
+    old_net.load_state_dict(updated_weights)
 
 
 class Trainer(trainer.GenericTrainer):
@@ -49,18 +72,50 @@ class Trainer(trainer.GenericTrainer):
         # The components in 'results' are as follows:
         # results[0]: results for pre-update model
         # results[1:]: results for the adapted model at each inner loop step
-        results = [0 for _ in range(self.inner_step + 1)]
+        corrects = [0 for _ in range(self.inner_step + 1)]
 
         x = torch.cat((x_spt, x_qry), 1)
         y = torch.cat((y_spt, y_qry), 1)
 
-        ##########################################################################################
+        task_num, setsz, _, _, _ = x_spt.size()
+        weights_diff = {n: torch.zeros_like(p) for n, p in self.net.named_parameters()}
+        for t in range(task_num):
+            # pre-update
+            with torch.no_grad():
+                loss_q, correct = self._evaluate(self.net, x_qry[t], y_qry[t])
+                corrects[0] += correct
 
-        # Write your code here
+            copied_net = copy.deepcopy(self.net)
+            optimizer = optim.Adam(copied_net.parameters(), lr=self.inner_lr)
+            for i in range(self.inner_step):
+                optimizer.zero_grad()
+                # the first update
+                logits = copied_net(x)
+                loss = self.loss(logits, y)
+                loss.backward()
+                optimizer.step()
 
-        ##########################################################################################
+                with torch.no_grad():
+                    loss_q, correct = self._evaluate(copied_net, x_qry[t], y_qry[t])
+                    corrects[i + 1] += correct
 
-        return results
+                curr_diff = _calculate_weights_diff(copied_net, self.net)
+                weights_diff = _add_named_parameters(weights_diff, curr_diff)
+
+        _update_network_parameters(self.net, weights_diff, self.inner_step, self.meta_lr)
+        querysz = x_qry.size(1)
+        accuracies = np.array(corrects) / (querysz * task_num)
+
+        return accuracies
+
+    def _evaluate(self, network, x, y):
+        logits = network(x)
+        loss = self.loss(logits, y)
+
+        preds = F.softmax(logits, dim=1).argmax(dim=1)
+        correct = torch.eq(preds, y).sum().item()
+
+        return loss, correct
 
     def _finetunning(self, x_spt, y_spt, x_qry, y_qry):
         """
@@ -82,12 +137,34 @@ class Trainer(trainer.GenericTrainer):
         # The components in 'results' are as follows:
         # results[0]: results for pre-update model
         # results[1:]: results for the adapted model at each inner loop step
-        results = [0 for _ in range(self.inner_step + 1)]
+        corrects = [0 for _ in range(self.inner_step + 1)]
+        losses_q = [0 for _ in range(self.inner_step + 1)]
 
-        ##########################################################################################
+        task_num, setsz, _, _, _ = x_spt.size()
 
-        # Write your code here
+        net = deepcopy(self.net)
 
-        ##########################################################################################
+        # pre-update
+        with torch.no_grad():
+            loss_q, correct = self._evaluate(net.parameters(), x_qry, y_qry)
+            losses_q[0] += loss_q.item()
+            corrects[0] += correct
 
-        return results
+        fast_weights = net.parameters()
+        for i in range(self.inner_step_test):
+            # the first update
+            logits = net(x_spt, fast_weights, bn_training=True)
+            loss = self.loss(logits, y_spt)
+            grad = torch.autograd.grad(loss, fast_weights)
+            fast_weights = list(map(lambda p, gradient: p - self.inner_lr * gradient, zip(fast_weights, grad)))
+
+            with torch.no_grad():
+                loss_q, correct = self._evaluate(fast_weights, x_qry, y_qry, net=net)
+                losses_q[i + 1] += loss_q.item()
+                corrects[i + 1] += correct
+
+        querysz = x_qry.size(0)
+        accuracies = np.array(corrects) / querysz
+
+        del net
+        return accuracies
