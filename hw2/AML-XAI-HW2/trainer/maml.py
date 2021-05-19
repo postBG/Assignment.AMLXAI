@@ -21,7 +21,6 @@ class Trainer(trainer.GenericTrainer):
         super(Trainer, self).__init__(model, args)
 
         self.meta_optim = optim.Adam(self.net.parameters(), lr=self.meta_lr)
-        self.inner_optim = optim.SGD(self.net.parameters(), lr=self.inner_lr)
         if self.args.dataset == 'omniglot':
             self.loss = nn.CrossEntropyLoss()
         elif self.args.dataset == 'sine':
@@ -95,7 +94,7 @@ class Trainer(trainer.GenericTrainer):
         loss = self.loss(logits, y)
 
         preds = F.softmax(logits, dim=1).argmax(dim=1)
-        correct = torch.eq(preds, y).sum().item()
+        correct = torch.eq(preds, y).sum()
 
         return loss, correct
 
@@ -125,28 +124,28 @@ class Trainer(trainer.GenericTrainer):
         task_num, setsz, _, _, _ = x_spt.size()
 
         net = deepcopy(self.net)
+        optimizer = optim.SGD(net.parameters(), lr=self.inner_lr)
 
         # pre-update
         with torch.no_grad():
-            loss_q, correct = self._evaluate(net.parameters(), x_qry, y_qry)
+            loss_q, correct = self._evaluate(net.parameters(), x_qry, y_qry, net=net)
             losses_q[0] += loss_q.item()
-            corrects[0] += correct
+            corrects[0] += correct.item()
 
-        fast_weights = net.parameters()
         for i in range(self.inner_step_test):
             # the first update
-            logits = net(x_spt, fast_weights, bn_training=True)
+            optimizer.zero_grad()
+            logits = net(x_spt)
             loss = self.loss(logits, y_spt)
-            grad = torch.autograd.grad(loss, fast_weights)
-            fast_weights = list(map(lambda p, gradient: p - self.inner_lr * gradient, zip(fast_weights, grad)))
+            loss.backward()
+            optimizer.step()
 
             with torch.no_grad():
-                loss_q, correct = self._evaluate(fast_weights, x_qry, y_qry, net=net)
+                loss_q, correct = self._evaluate(net.parameters(), x_qry, y_qry, net=net)
                 losses_q[i + 1] += loss_q.item()
-                corrects[i + 1] += correct
+                corrects[i + 1] += correct.item()
 
         querysz = x_qry.size(0)
         accuracies = np.array(corrects) / querysz
 
-        del net
         return accuracies
