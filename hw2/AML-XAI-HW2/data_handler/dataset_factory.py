@@ -1,5 +1,5 @@
-from data_handler.omniglotNShot import OmniglotNShot
 from data_handler.SineNShot import SineNShot
+from data_handler.omniglotNShot import OmniglotNShot
 
 
 def get_dataset(args):

@@ -1,7 +1,8 @@
-import torch.utils.data as data
+import errno
 import os
 import os.path
-import errno
+
+import torch.utils.data as data
 
 
 class Omniglot(data.Dataset):

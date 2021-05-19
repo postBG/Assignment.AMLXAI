@@ -1,8 +1,10 @@
-from data_handler.omniglot import Omniglot
+import os.path
+
+import numpy as np
 import torchvision.transforms as transforms
 from PIL import Image
-import os.path
-import numpy as np
+
+from data_handler.omniglot import Omniglot
 
 
 class OmniglotNShot:

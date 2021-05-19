@@ -1,7 +1,5 @@
-import torch
 import numpy as np
-from torch.nn import functional as F
-from copy import deepcopy
+import torch
 
 
 class TrainerFactory():
