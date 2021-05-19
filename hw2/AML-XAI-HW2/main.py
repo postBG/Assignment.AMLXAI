@@ -16,7 +16,7 @@ def main():
 
     print(args)
 
-    device = torch.device('cpu')
+    device = torch.device('cuda')
 
     args.device = device
     myModel = networks.ModelFactory.get_model(args.dataset, args.n_way).to(device)
