@@ -55,24 +55,24 @@ class Trainer(trainer.GenericTrainer):
         losses_q = [0 for _ in range(self.inner_step + 1)]
 
         task_num, setsz, _, _, _ = x_spt.size()
-        for i in range(task_num):
+        for t in range(task_num):
             # pre-update
             with torch.no_grad():
-                loss_q, correct = self._evaluate(self.net.parameters(), x_qry[i], y_qry[i])
+                loss_q, correct = self._evaluate(self.net.parameters(), x_qry[t], y_qry[t])
                 losses_q[0] += loss_q
                 corrects[0] += correct
 
             fast_weights = self.net.parameters()
-            for j in range(self.inner_step):
+            for i in range(self.inner_step):
                 # the first update
-                logits = self.net(x_spt[i], fast_weights, bn_training=True)
-                loss = self.loss(logits, y_spt[i])
+                logits = self.net(x_spt[t], fast_weights, bn_training=True)
+                loss = self.loss(logits, y_spt[t])
                 grad = torch.autograd.grad(loss, fast_weights, create_graph=need_second_order)
                 fast_weights = list(map(lambda p, gradient: p - self.inner_lr * gradient, zip(fast_weights, grad)))
 
-                loss_q, correct = self._evaluate(fast_weights, x_qry[i], y_qry[i])
-                losses_q[j + 1] += loss_q
-                corrects[j + 1] += correct
+                loss_q, correct = self._evaluate(fast_weights, x_qry[t], y_qry[t])
+                losses_q[i + 1] += loss_q
+                corrects[i + 1] += correct
 
         # After all tasks
         # sum over all losses on query set across all tasks
@@ -133,7 +133,7 @@ class Trainer(trainer.GenericTrainer):
             corrects[0] += correct
 
         fast_weights = net.parameters()
-        for j in range(self.inner_step_test):
+        for i in range(self.inner_step_test):
             # the first update
             logits = net(x_spt, fast_weights, bn_training=True)
             loss = self.loss(logits, y_spt)
@@ -142,8 +142,8 @@ class Trainer(trainer.GenericTrainer):
 
             with torch.no_grad():
                 loss_q, correct = self._evaluate(fast_weights, x_qry, y_qry, net=net)
-                losses_q[j + 1] += loss_q.item()
-                corrects[j + 1] += correct
+                losses_q[i + 1] += loss_q.item()
+                corrects[i + 1] += correct
 
         querysz = x_qry.size(0)
         accuracies = np.array(corrects) / querysz
