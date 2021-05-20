@@ -31,6 +31,10 @@ def _update_network_parameters(old_net, weights_diff, inner_step, lr):
     old_net.load_state_dict(updated_weights)
 
 
+def _to_numpy(ts):
+    return np.array([t.cpu() for t in ts if isinstance(t, torch.Tensor)])
+
+
 class Trainer(trainer.GenericTrainer):
     """
     Meta Learner
@@ -101,7 +105,7 @@ class Trainer(trainer.GenericTrainer):
 
         _update_network_parameters(self.net, weights_diff, self.inner_step, self.meta_lr)
         querysz = x_qry.size(1)
-        accuracies = np.array(corrects) / (querysz * task_num)
+        accuracies = _to_numpy(corrects) / (querysz * task_num)
 
         return accuracies
 
@@ -134,10 +138,10 @@ class Trainer(trainer.GenericTrainer):
         # The components in 'results' are as follows:
         # results[0]: results for pre-update model
         # results[1:]: results for the adapted model at each inner loop step
-        corrects = [0 for _ in range(self.inner_step + 1)]
-        losses_q = [0 for _ in range(self.inner_step + 1)]
+        corrects = [0 for _ in range(self.inner_step_test + 1)]
+        losses_q = [0 for _ in range(self.inner_step_test + 1)]
 
-        task_num, setsz, _, _, _ = x_spt.size()
+        task_num, setsz, _, _ = x_spt.size()
 
         net = deepcopy(self.net)
         optimizer = optim.Adam(net.parameters(), lr=self.inner_lr, betas=(0, 0.999))
@@ -162,6 +166,6 @@ class Trainer(trainer.GenericTrainer):
                 corrects[i + 1] += correct.item()
 
         querysz = x_qry.size(0)
-        accuracies = np.array(corrects) / querysz
+        accuracies = _to_numpy(corrects) / querysz
 
         return accuracies
