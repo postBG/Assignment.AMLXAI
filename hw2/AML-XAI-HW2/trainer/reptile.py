@@ -87,8 +87,8 @@ class Trainer(trainer.GenericTrainer):
             for i in range(self.inner_step):
                 optimizer.zero_grad()
                 # the first update
-                logits = copied_net(x)
-                loss = self.loss(logits, y)
+                logits = copied_net(x[t])
+                loss = self.loss(logits, y[t])
                 loss.backward()
                 optimizer.step()
 
