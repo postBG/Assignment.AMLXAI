@@ -55,24 +55,34 @@ class GenericTrainer:
                 print('step:', step, '\ttraining acc:', accs)
 
             if step % 500 == 0:
-                accs = []
-                for _ in range(1000 // self.task_num):
-                    # test
-                    x_spt, y_spt, x_qry, y_qry = dataloader.next('test')
-                    x_spt, y_spt, x_qry, y_qry = torch.from_numpy(x_spt).to(self.device), torch.from_numpy(y_spt).to(
-                        self.device), torch.from_numpy(x_qry).to(self.device), torch.from_numpy(y_qry).to(self.device)
+                _, _ = self.evaluate(dataloader)
 
-                    # split to single task each time
-                    for x_spt_one, y_spt_one, x_qry_one, y_qry_one in zip(x_spt, y_spt, x_qry, y_qry):
-                        test_acc = self._finetunning(x_spt_one, y_spt_one, x_qry_one, y_qry_one)
-                        accs.append(test_acc)
+        test_accs, test_losses = self.evaluate(dataloader)
+        return test_accs, test_losses, self.net
 
-                # [b, inner_step+1]
-                accs = np.array(accs).mean(axis=0).astype(np.float16)
-                print('Test acc:', accs)
+    def evaluate(self, dataloader):
+        test_accs = []
+        test_losses = []
+        for _ in range(1000 // self.task_num):
+            # test
+            x_spt, y_spt, x_qry, y_qry = dataloader.next('test')
+            x_spt, y_spt, x_qry, y_qry = torch.from_numpy(x_spt).to(self.device), torch.from_numpy(y_spt).to(
+                self.device), torch.from_numpy(x_qry).to(self.device), torch.from_numpy(y_qry).to(self.device)
+
+            # split to single task each time
+            for x_spt_one, y_spt_one, x_qry_one, y_qry_one in zip(x_spt, y_spt, x_qry, y_qry):
+                test_acc, test_loss = self._finetunning(x_spt_one, y_spt_one, x_qry_one, y_qry_one)
+                test_accs.append(test_acc)
+                test_losses.append(test_loss)
+        # [b, inner_step+1]
+        test_accs = np.array(test_accs).mean(axis=0).astype(np.float16)
+        test_losses = np.array(test_losses).mean(axis=0).astype(np.float16)
+        print('Test acc:', test_accs)
+        print('Test losses:', test_losses)
+        return test_accs, test_losses
 
     def _train_epoch(self, x_spt, y_spt, x_qry, y_qry):
         pass
 
     def _finetunning(self, x_spt, y_spt, x_qry, y_qry):
-        pass
+        raise NotImplementedError

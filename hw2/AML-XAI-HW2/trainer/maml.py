@@ -10,7 +10,14 @@ import trainer
 
 
 def _to_numpy(ts):
-    return np.array([t.cpu() for t in ts if isinstance(t, torch.Tensor)])
+    out = []
+    for t in ts:
+        if isinstance(t, torch.Tensor):
+            out.append(t.cpu())
+        else:
+            out.append(t)
+    assert len(out) == len(ts)
+    return np.array(out)
 
 
 class Trainer(trainer.GenericTrainer):
@@ -151,5 +158,6 @@ class Trainer(trainer.GenericTrainer):
 
         querysz = x_qry.size(0)
         accuracies = _to_numpy(corrects) / querysz
+        losses_q = _to_numpy(losses_q)
 
-        return accuracies
+        return accuracies, losses_q
