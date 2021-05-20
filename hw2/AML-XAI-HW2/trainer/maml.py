@@ -9,6 +9,10 @@ from torch.nn import functional as F
 import trainer
 
 
+def _to_numpy(ts):
+    return np.array([t.cpu() for t in ts if isinstance(t, torch.Tensor)])
+
+
 class Trainer(trainer.GenericTrainer):
     """
     Meta Learner
@@ -67,7 +71,7 @@ class Trainer(trainer.GenericTrainer):
                 logits = self.net(x_spt[t], fast_weights)
                 loss = self.loss(logits, y_spt[t])
                 grad = torch.autograd.grad(loss, fast_weights, create_graph=need_second_order)
-                fast_weights = list(map(lambda p, gradient: p - self.inner_lr * gradient, zip(fast_weights, grad)))
+                fast_weights = list(map(lambda p: p[0] - self.inner_lr * p[1], zip(fast_weights, grad)))
 
                 loss_q, correct = self._evaluate(fast_weights, x_qry[t], y_qry[t])
                 losses_q[i + 1] += loss_q
@@ -83,7 +87,7 @@ class Trainer(trainer.GenericTrainer):
         self.meta_optim.step()
 
         querysz = x_qry.size(1)
-        accuracies = np.array(corrects) / (querysz * task_num)
+        accuracies = _to_numpy(corrects) / (querysz * task_num)
 
         return accuracies
 
@@ -118,10 +122,10 @@ class Trainer(trainer.GenericTrainer):
         # The components in 'results' are as follows:
         # results[0]: results for pre-update model
         # results[1:]: results for the adapted model at each inner loop step
-        corrects = [0 for _ in range(self.inner_step + 1)]
-        losses_q = [0 for _ in range(self.inner_step + 1)]
+        corrects = [0 for _ in range(self.inner_step_test + 1)]
+        losses_q = [0 for _ in range(self.inner_step_test + 1)]
 
-        task_num, setsz, _, _, _ = x_spt.size()
+        task_num, setsz, _, _ = x_spt.size()
 
         net = deepcopy(self.net)
         optimizer = optim.SGD(net.parameters(), lr=self.inner_lr)
@@ -146,6 +150,6 @@ class Trainer(trainer.GenericTrainer):
                 corrects[i + 1] += correct.item()
 
         querysz = x_qry.size(0)
-        accuracies = np.array(corrects) / querysz
+        accuracies = _to_numpy(corrects) / querysz
 
         return accuracies
