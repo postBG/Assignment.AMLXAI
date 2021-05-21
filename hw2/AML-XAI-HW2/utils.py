@@ -12,26 +12,26 @@ class Saver(object):
         self.recent_loss = os.path.join(self.output_path, 'loss.txt')
         self.recent_model = os.path.join(self.output_path, 'model.pt')
 
-        self.best_acc = os.path.join(self.output_path, 'best_acc.txt')
-        self.best_loss = os.path.join(self.output_path, 'best_loss.txt')
-        self.best_model = os.path.join(self.output_path, 'best_model.pt')
-
         self.recent_best_acc = 0
 
-    def save(self, net, test_accs, test_losses):
-        self.save_best(net, test_accs, test_losses)
+    def save(self, net, test_accs, test_losses, step):
+        self.save_best(net, test_accs, test_losses, step)
         self.save_recent(net, test_accs, test_losses)
 
-    def save_best(self, net, test_accs, test_losses):
+    def save_best(self, net, test_accs, test_losses, step):
         recent_acc = test_accs[-1]
         if recent_acc <= self.recent_best_acc:
             return
 
+        best_acc = os.path.join(self.output_path, f'best_acc_{step}.txt')
+        best_loss = os.path.join(self.output_path, f'best_loss_{step}.txt')
+        best_model = os.path.join(self.output_path, f'best_model_{step}.spt')
+
         self.recent_best_acc = recent_acc
         print('Save Best at ' + self.output_path)
-        np.savetxt(self.best_acc, test_accs, '%.4f')
-        np.savetxt(self.best_loss, test_losses, '%.4f')
-        torch.save(net.state_dict(), self.best_model)
+        np.savetxt(best_acc, test_accs, '%.4f')
+        np.savetxt(best_loss, test_losses, '%.4f')
+        torch.save(net.state_dict(), best_model)
         print('done!')
 
     def save_recent(self, net, test_accs, test_losses):

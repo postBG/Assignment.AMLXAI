@@ -60,10 +60,10 @@ class GenericTrainer:
 
             if step % 500 == 0:
                 test_accs, test_losses = self.evaluate(dataloader)
-                self.saver.save(self.net, test_accs, test_losses)
+                self.saver.save(self.net, test_accs, test_losses, step)
 
         test_accs, test_losses = self.evaluate(dataloader)
-        self.saver.save(self.net, test_accs, test_losses)
+        self.saver.save(self.net, test_accs, test_losses, step)
         return test_accs, test_losses, self.net
 
     def evaluate(self, dataloader):
