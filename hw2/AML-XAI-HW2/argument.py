@@ -10,7 +10,7 @@ def get_args():
     argparser.add_argument('--dataset', default='omniglot', type=str,
                            choices=['omniglot', 'sine'],
                            help='(default=%(default)s)')
-    argparser.add_argument('--epoch', type=int, help='epoch number', default=25000)
+    argparser.add_argument('--epoch', type=int, help='epoch number', default=40000)
     argparser.add_argument('--seed', type=int, help='seed number', default=0)
     argparser.add_argument('--n_way', type=int, help='n way', default=5)
     argparser.add_argument('--k_spt', type=int, help='k shot for support set', default=1)
