@@ -9,7 +9,6 @@ import data_handler
 import networks
 import trainer
 from argument import get_args
-from utils import save
 
 
 def main():
