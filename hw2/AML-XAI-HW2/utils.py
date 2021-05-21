@@ -25,7 +25,7 @@ class Saver(object):
 
         best_acc = os.path.join(self.output_path, f'best_acc_{step}.txt')
         best_loss = os.path.join(self.output_path, f'best_loss_{step}.txt')
-        best_model = os.path.join(self.output_path, f'best_model_{step}.spt')
+        best_model = os.path.join(self.output_path, 'best_model.pt')
 
         self.recent_best_acc = recent_acc
         print('Save Best at ' + self.output_path)
