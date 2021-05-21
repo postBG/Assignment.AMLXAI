@@ -23,7 +23,6 @@ def get_args():
     argparser.add_argument('--inner_step', type=int, help='task-level inner update steps', default=5)
     argparser.add_argument('--inner_step_test', type=int, help='update steps for finetunning', default=10)
 
-    argparser.add_argument('--batch-size', type=int, help='mini batch size for reptile only', default=5)
     argparser.add_argument('--output_path', type=str, help='Output Path', default='')
     args = argparser.parse_args()
 
