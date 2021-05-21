@@ -9,6 +9,7 @@ import data_handler
 import networks
 import trainer
 from argument import get_args
+from utils import save
 
 
 def main():
@@ -32,6 +33,7 @@ def main():
         args.trainer, args.dataset, args.n_way, args.k_spt, args.k_qry, args.task_num, args.meta_lr,
         args.inner_lr, args.inner_step, args.inner_step_test, args.epoch, now.strftime('%Y-%m-%d_%H_%M_%S'))
     output_path = './result_data/' + log_name
+    args.output_path = output_path
 
     if not os.path.isdir(os.path.join(output_path)):
         print('Make directory for saving results')
@@ -45,15 +47,6 @@ def main():
     myTrainer = trainer.TrainerFactory.get_trainer(myModel, args)
     dataloader = data_handler.get_dataset(args)
     test_accs, test_losses, net = myTrainer.train(dataloader, args.epoch)
-    acc_path = os.path.join(output_path, 'acc.txt')
-    loss_path = os.path.join(output_path, 'loss.txt')
-    model_path = os.path.join(output_path, 'task.pt')
-
-    print('Save at ' + output_path)
-    np.savetxt(acc_path, test_accs, '%.4f')
-    np.savetxt(loss_path, test_losses, '%.4f')
-    torch.save(net.state_dict(), model_path)
-    print('done!')
 
 
 if __name__ == '__main__':

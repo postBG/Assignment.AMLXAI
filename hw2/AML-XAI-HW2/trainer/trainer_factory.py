@@ -1,6 +1,8 @@
 import numpy as np
 import torch
 
+from utils import save
+
 
 class TrainerFactory():
     def __init__(self):
@@ -39,6 +41,7 @@ class GenericTrainer:
         self.meta_lr = args.meta_lr
         self.inner_step = args.inner_step
         self.inner_step_test = args.inner_step_test
+        self.output_path = args.output_path
 
     def train(self, dataloader, epoch):
         eval_flag = True
@@ -55,9 +58,11 @@ class GenericTrainer:
                 print('step:', step, '\ttraining acc:', accs)
 
             if step % 500 == 0:
-                _, _ = self.evaluate(dataloader)
+                test_accs, test_losses = self.evaluate(dataloader)
+                save(self.net, self.output_path, test_accs, test_losses)
 
         test_accs, test_losses = self.evaluate(dataloader)
+        save(self.net, self.output_path, test_accs, test_losses)
         return test_accs, test_losses, self.net
 
     def evaluate(self, dataloader):
