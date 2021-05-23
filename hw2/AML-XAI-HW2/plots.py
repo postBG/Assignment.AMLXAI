@@ -67,3 +67,25 @@ def plot_figure2(paths, save_path='', ylim=None):
     if save_path:
         extension = save_path.split('.')[-1]
         plt.savefig(save_path, format=extension)
+
+
+def plot_figure2_sin(paths, save_path='', ylim=None):
+    results = [read_losses(path) for path in paths]
+    names = ['MAML', 'FOMAML', 'REPTILE']
+    palette = ['d77355', 'ef233c', '508cd7']
+    linewidth = 1.5
+    plt.rcParams['figure.figsize'] = 12, 5
+    for i, data in enumerate(results):
+        plt.plot(data, linewidth=linewidth, color=f'#{palette[i]}', label=f'{names[i]}')
+
+    num_updates = len(results[0])
+    xticks = list(range(num_updates))
+    plt.xticks(xticks, labels=[f'{t}' for t in xticks])
+    plt.legend(loc='upper right')
+    plt.xlabel('Number of Gradient Steps')
+    plt.ylabel('MSE loss')
+    if ylim:
+        plt.ylim(ylim)
+    if save_path:
+        extension = save_path.split('.')[-1]
+        plt.savefig(save_path, format=extension)
