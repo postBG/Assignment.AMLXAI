@@ -42,7 +42,7 @@ class GenericTrainer:
         self.inner_step = args.inner_step
         self.inner_step_test = args.inner_step_test
         self.output_path = args.output_path
-        self.saver = Saver(self.output_path)
+        self.saver = Saver(self.output_path, args)
 
     def train(self, dataloader, epoch):
         eval_flag = True
