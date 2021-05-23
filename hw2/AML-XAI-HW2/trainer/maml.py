@@ -96,8 +96,9 @@ class Trainer(trainer.GenericTrainer):
 
         querysz = x_qry.size(1)
         accuracies = _to_numpy(corrects) / (querysz * task_num)
+        losses_q = _to_numpy(losses_q) / task_num
 
-        return accuracies
+        return accuracies if self.args.dataset == 'omniglot' else losses_q
 
     def _evaluate(self, weights, x, y, net=None):
         if net is None:

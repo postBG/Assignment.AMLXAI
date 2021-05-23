@@ -81,6 +81,7 @@ class Trainer(trainer.GenericTrainer):
         # results[0]: results for pre-update model
         # results[1:]: results for the adapted model at each inner loop step
         corrects = [0 for _ in range(self.inner_step + 1)]
+        losses_q = [0 for _ in range(self.inner_step + 1)]
 
         x = torch.cat((x_spt, x_qry), 1)
         y = torch.cat((y_spt, y_qry), 1)
@@ -93,6 +94,7 @@ class Trainer(trainer.GenericTrainer):
             with torch.no_grad():
                 loss_q, correct = self._evaluate(self.net, x_qry[t], y_qry[t])
                 corrects[0] += correct
+                losses_q[0] += loss_q
 
             copied_net = copy.deepcopy(self.net)
             optimizer = optim.Adam(copied_net.parameters(), lr=self.inner_lr, betas=(0, 0.999))
@@ -107,6 +109,7 @@ class Trainer(trainer.GenericTrainer):
                 with torch.no_grad():
                     loss_q, correct = self._evaluate(copied_net, x_qry[t], y_qry[t])
                     corrects[i + 1] += correct
+                    losses_q[i + 1] += loss_q
 
                 curr_diff = _calculate_weights_diff(copied_net, self.net)
                 weights_diff = _add_named_parameters(weights_diff, curr_diff)
@@ -114,8 +117,9 @@ class Trainer(trainer.GenericTrainer):
         _update_network_parameters(self.net, weights_diff, self.inner_step, self.meta_lr)
         querysz = x_qry.size(1)
         accuracies = _to_numpy(corrects) / (querysz * task_num)
+        losses_q = _to_numpy(losses_q) / task_num
 
-        return accuracies
+        return accuracies if self.args.dataset == 'omniglot' else losses_q
 
     def _evaluate(self, network, x, y):
         logits = network(x)
