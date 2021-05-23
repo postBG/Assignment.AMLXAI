@@ -85,7 +85,8 @@ class Trainer(trainer.GenericTrainer):
         x = torch.cat((x_spt, x_qry), 1)
         y = torch.cat((y_spt, y_qry), 1)
 
-        task_num, setsz, _, _, _ = x_spt.size()
+        task_num = x_spt.size(0)
+
         weights_diff = {n: torch.zeros_like(p) for n, p in self.net.named_parameters()}
         for t in range(task_num):
             # pre-update
@@ -147,8 +148,6 @@ class Trainer(trainer.GenericTrainer):
         # results[1:]: results for the adapted model at each inner loop step
         corrects = [0 for _ in range(self.inner_step_test + 1)]
         losses_q = [0 for _ in range(self.inner_step_test + 1)]
-
-        task_num, setsz, _, _ = x_spt.size()
 
         net = deepcopy(self.net)
         optimizer = optim.Adam(net.parameters(), lr=self.inner_lr, betas=(0, 0.999))

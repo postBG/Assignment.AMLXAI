@@ -64,7 +64,8 @@ class Trainer(trainer.GenericTrainer):
         corrects = [0 for _ in range(self.inner_step + 1)]
         losses_q = [0 for _ in range(self.inner_step + 1)]
 
-        task_num, setsz, _, _, _ = x_spt.size()
+        task_num = x_spt.size(0)
+
         for t in range(task_num):
             # pre-update
             with torch.no_grad():
@@ -131,8 +132,6 @@ class Trainer(trainer.GenericTrainer):
         # results[1:]: results for the adapted model at each inner loop step
         corrects = [0 for _ in range(self.inner_step_test + 1)]
         losses_q = [0 for _ in range(self.inner_step_test + 1)]
-
-        task_num, setsz, _, _ = x_spt.size()
 
         net = deepcopy(self.net)
         optimizer = optim.SGD(net.parameters(), lr=self.inner_lr)
