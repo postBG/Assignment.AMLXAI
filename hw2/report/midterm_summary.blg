@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2020/W32TeX)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: midterm_summary.aux
+The style file: ieee_fullname.bst
+Database file #1: egbib.bib
+You've used 3 entries,
+            2120 wiz_defined-function locations,
+            592 strings with 5039 characters,
+and the built_in function-call counts, 961 in all, are:
+= -- 77
+> -- 59
+< -- 0
++ -- 23
+- -- 20
+* -- 61
+:= -- 168
+add.period$ -- 9
+call.type$ -- 3
+change.case$ -- 19
+chr.to.int$ -- 0
+cite$ -- 3
+duplicate$ -- 42
+empty$ -- 85
+format.name$ -- 20
+if$ -- 198
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 3
+newline$ -- 18
+num.names$ -- 6
+pop$ -- 31
+preamble$ -- 1
+purify$ -- 16
+quote$ -- 0
+skip$ -- 21
+stack$ -- 0
+substring$ -- 15
+swap$ -- 6
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 12
+warning$ -- 0
+while$ -- 6
+width$ -- 4
+write$ -- 32

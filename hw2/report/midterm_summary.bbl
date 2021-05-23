@@ -1,0 +1,18 @@
+\begin{thebibliography}{1}\itemsep=-1pt
+
+\bibitem{maml}
+Chelsea Finn, Pieter Abbeel, and Sergey Levine.
+\newblock Model-agnostic meta-learning for fast adaptation of deep networks.
+\newblock In {\em ICML}, 2017.
+
+\bibitem{omniglot}
+Brenden~M Lake, Ruslan Salakhutdinov, Jason Gross, and Joshua~B. Tenenbaum.
+\newblock One shot learning of simple visual concepts.
+\newblock In {\em CogSci}, 2011.
+
+\bibitem{reptile}
+Alex Nichol, Joshua Achiam, and John Schulman.
+\newblock On first-order meta-learning algorithms.
+\newblock In {\em arXiv:1803.02999}, 2018.
+
+\end{thebibliography}
