@@ -1,4 +1,2 @@
-# inner step test tuning
-python3 main.py --trainer reptile --dataset=omniglot --n_way=5 --k_spt=1 --k_qry=10  --inner_step_test=50  --meta_lr=1e-3 --task_num=10 --inner_step=20  --inner_lr=0.01
-
-
+python3 main.py --trainer reptile --dataset=sine --n_way=5 --k_spt=5 --k_qry=10  --inner_step_test=10  --meta_lr=1e-3 --task_num=30 --inner_step=10  --inner_lr=0.001 --epoch=1000
+python3 main.py --trainer maml --dataset=sine --n_way=5 --k_spt=10 --k_qry=10  --inner_step_test=10  --meta_lr=1e-3 --task_num=10 --inner_step=10  --inner_lr=5e-5 --epoch=1000
