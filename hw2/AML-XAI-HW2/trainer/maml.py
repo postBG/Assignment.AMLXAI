@@ -13,7 +13,7 @@ def _to_numpy(ts):
     out = []
     for t in ts:
         if isinstance(t, torch.Tensor):
-            out.append(t.cpu())
+            out.append(t.detach().cpu())
         else:
             out.append(t)
     assert len(out) == len(ts)
