@@ -39,10 +39,12 @@ Seoul National University\\
 
 %%%%%%%%% BODY TEXT
 \section{Introduction}
-In this assignment, I implemented and reproduced MAML~\cite{maml}, FOMAML~\cite{maml} and Reptile~\cite{reptile}. I followed the instructions for all experiments. Therefore, I will skip all the details of experiments. The reported hyperparameters in papers are not helpful, so I should re-search all the hyperparameters, which requires too many time. 
+In this assignment, I implemented and reproduced MAML~\cite{maml}, FOMAML~\cite{maml}, and Reptile~\cite{reptile}. I followed the instructions for all experiments. Therefore, I skip all the details of the experiments. In the following section, I report the results of each task using the required graphs.
 
 \section{Omniglot Classification Results}~\label{omniglot}
-In Omniglot~\cite{omniglot} experiments, we compare just FOMAML~\cite{maml} and Reptile~\cite{reptile}. The results can be shown in Figure~\ref{comp2}. As we can see in the figure, 1-shot and 5-shot results are similar in that they are converge very fastly. However, the starting losses are quite different. More specifically, in 1-shot classification, the starting loss of FOMAML is between 4 and 5, while that of 5-shot classification is larger than 7. In other hand, the results of Reptile show similar in both experiments. The final losses of FOMAML is smaller than that of Reptile. Moreover, the accuracies of FOMAML is larger than Reptile. The final accuracies of FOMAML are 92.29 and 96.58 for 1-shot and 5-shot classification, respectively, while the final accuracies of Reptile are only 87.21 and 87.30.
+In Omniglot~\cite{omniglot} experiments, we compare just FOMAML~\cite{maml} and Reptile~\cite{reptile}. Figure~\ref{comp2} display the results of the experiments. As we can see in the figure, 1-shot and 5-shot results are similar in that they converge very fastly. However, the starting losses are quite different. More specifically, in 1-shot classification tasks, the starting loss of FOMAML is between 4 and 5, while that of 5-shot classification is larger than 7. On the other hand, the results of Reptile show similarities in both experiments. The final losses of FOMAML are smaller than that of Reptile. Moreover, the accuracies of FOMAML are larger than Reptile. The final accuracies of FOMAML are 92.29 and 96.58 for 1-shot and 5-shot classification, respectively, while the final accuracies of Reptile are only 87.21 and 87.30.
+
+In all experiments, we used ten tasks, 5 inner steps, 50 test inner steps, and 20000 epochs, while we changed meta LR and inner LR. More specifically, we used 0.001 and 0.4 as meta LR and inner LR, respectively, for training 1-shot and 5-shot FOMAML. For 1-shot and 5-shot Reptile, we used 0.001 and 0.1 as meta LR and inner LR, respectively.
 
 \begin{figure}[b]
     \centering
@@ -59,7 +61,9 @@ In Omniglot~\cite{omniglot} experiments, we compare just FOMAML~\cite{maml} and 
 
 
 \section{Sine Waves Regression Results}
-As we can see in the previous section~\ref{omniglot}, the implementations of the alogrithms are fine. However, tuning hyperparameters on this regression tasks requires too many resources. The results are shown in Figure~\ref{sin5} and Figure~\ref{sin10}. For 5-shot tasks, the training losses first increase then decrease. These results show that the learning is not doen well. For 10-shot tasks, the losses decrease monotonically. However, the difference between updating 1 step and 5 steps is small.
+For this regression experiments, we tested MAML~\cite{maml}, FOMAML~\cite{maml}, and Reptile~\cite{reptile}. In all experiments, we used 10000 epochs, 10 test inner steps, and we used the same meta LR and inner LR for the same algorithms. For training MAML and FOMAML, We used \{0.001, 0.0001, 1, 1000\} as \{meta LR, inner LR, inner steps, tasks\}, respectively. We used \{0.001, 0.01, 5, 100\} as \{meta LR, inner LR, inner steps, tasks\} for training Reptile.
+
+The results are shown in Figure~\ref{sin5} and Figure~\ref{sin10}. For 5-shot tasks, the training loss of FOMAML seems unstable but eventually converges. The other losses decrease monotonically in all experiments. MAML shows the best results for all experiments, while it uses the most resources when calculating second-order gradients.
 
 \begin{figure}[b]
     \centering

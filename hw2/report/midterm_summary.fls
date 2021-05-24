@@ -592,6 +592,10 @@ INPUT c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/resources/omnig
 INPUT c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/resources/omniglot_5way_5shot.png
 INPUT c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/resources/omniglot_5way_5shot.png
 INPUT d:/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
+INPUT d:/texlive/2020/texmf-dist/tex/latex/psnfss/omsptm.fd
+INPUT d:/texlive/2020/texmf-dist/tex/latex/psnfss/omsptm.fd
+INPUT d:/texlive/2020/texmf-dist/tex/latex/psnfss/omsptm.fd
+INPUT d:/texlive/2020/texmf-dist/tex/latex/psnfss/omsptm.fd
 INPUT c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/resources/maml_5.png
 INPUT c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/resources/maml_5.png
 INPUT c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/resources/maml_5.png
@@ -652,6 +656,7 @@ INPUT c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/midterm_summary
 INPUT c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/midterm_summary.brf
 INPUT c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/midterm_summary.brf
 INPUT d:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc
+INPUT d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT d:/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb
 INPUT d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
 INPUT d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb

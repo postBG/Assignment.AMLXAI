@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.9)  24 MAY 2021 01:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.9)  24 MAY 2021 15:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -353,43 +353,49 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 <resources/omniglot_5way_1shot.png, id=11, 867.24pt x 361.35pt>
 File: resources/omniglot_5way_1shot.png Graphic file (type png)
 <use resources/omniglot_5way_1shot.png>
-Package pdftex.def Info: resources/omniglot_5way_1shot.png  used on input line 50.
+Package pdftex.def Info: resources/omniglot_5way_1shot.png  used on input line 52.
 (pdftex.def)             Requested size: 447.16759pt x 186.32063pt.
 <resources/omniglot_5way_5shot.png, id=13, 867.24pt x 361.35pt>
 File: resources/omniglot_5way_5shot.png Graphic file (type png)
 <use resources/omniglot_5way_5shot.png>
-Package pdftex.def Info: resources/omniglot_5way_5shot.png  used on input line 52.
+Package pdftex.def Info: resources/omniglot_5way_5shot.png  used on input line 54.
 (pdftex.def)             Requested size: 447.16759pt x 186.32063pt.
-<resources/maml_5.png, id=17, 876.27374pt x 334.24875pt>
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 64.
+ (d:/texlive/2020/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 64.
+<resources/maml_5.png, id=19, 876.27374pt x 334.24875pt>
 File: resources/maml_5.png Graphic file (type png)
 <use resources/maml_5.png>
-Package pdftex.def Info: resources/maml_5.png  used on input line 67.
+Package pdftex.def Info: resources/maml_5.png  used on input line 71.
 (pdftex.def)             Requested size: 447.16759pt x 170.5717pt.
-<resources/fomaml_5.png, id=18, 876.27374pt x 334.24875pt>
+<resources/fomaml_5.png, id=20, 876.27374pt x 334.24875pt>
 File: resources/fomaml_5.png Graphic file (type png)
 <use resources/fomaml_5.png>
-Package pdftex.def Info: resources/fomaml_5.png  used on input line 69.
+Package pdftex.def Info: resources/fomaml_5.png  used on input line 73.
 (pdftex.def)             Requested size: 447.16759pt x 170.5717pt.
-<resources/reptile_5.png, id=19, 892.33376pt x 334.24875pt>
+<resources/reptile_5.png, id=21, 885.3075pt x 334.24875pt>
 File: resources/reptile_5.png Graphic file (type png)
 <use resources/reptile_5.png>
-Package pdftex.def Info: resources/reptile_5.png  used on input line 71.
-(pdftex.def)             Requested size: 447.16759pt x 167.50137pt.
-<resources/maml_10.png, id=20, 876.27374pt x 334.24875pt>
+Package pdftex.def Info: resources/reptile_5.png  used on input line 75.
+(pdftex.def)             Requested size: 447.16759pt x 168.83253pt.
+<resources/maml_10.png, id=22, 885.3075pt x 334.24875pt>
 File: resources/maml_10.png Graphic file (type png)
 <use resources/maml_10.png>
-Package pdftex.def Info: resources/maml_10.png  used on input line 82.
-(pdftex.def)             Requested size: 447.16759pt x 170.5717pt.
-<resources/fomaml_10.png, id=21, 876.27374pt x 334.24875pt>
+Package pdftex.def Info: resources/maml_10.png  used on input line 86.
+(pdftex.def)             Requested size: 447.16759pt x 168.83253pt.
+<resources/fomaml_10.png, id=23, 885.3075pt x 334.24875pt>
 File: resources/fomaml_10.png Graphic file (type png)
 <use resources/fomaml_10.png>
-Package pdftex.def Info: resources/fomaml_10.png  used on input line 84.
-(pdftex.def)             Requested size: 447.16759pt x 170.5717pt.
-<resources/reptile_10.png, id=22, 876.27374pt x 334.24875pt>
+Package pdftex.def Info: resources/fomaml_10.png  used on input line 88.
+(pdftex.def)             Requested size: 447.16759pt x 168.83253pt.
+<resources/reptile_10.png, id=24, 885.3075pt x 334.24875pt>
 File: resources/reptile_10.png Graphic file (type png)
 <use resources/reptile_10.png>
-Package pdftex.def Info: resources/reptile_10.png  used on input line 86.
-(pdftex.def)             Requested size: 447.16759pt x 170.5717pt.
+Package pdftex.def Info: resources/reptile_10.png  used on input line 90.
+(pdftex.def)             Requested size: 447.16759pt x 168.83253pt.
  (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/midterm_summary.bbl (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/midterm_summary.brf)
 \tf@brf=\write3
 \openout3 = `midterm_summary.brf'.
@@ -399,21 +405,21 @@ Package pdftex.def Info: resources/reptile_10.png  used on input line 86.
 
 {d:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/resources/omniglot_5way_1shot.png> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/resources/omniglot_5way_5shot.png>] [3 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/resources/maml_5.png> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/resources/fomaml_5.png> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/resources/reptile_5.png>] [4 <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/resources/maml_10.png> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/resources/fomaml_10.png> <c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/resources/reptile_10.png>] (c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/midterm_summary.aux)
 Package rerunfilecheck Info: File `midterm_summary.brf' has not changed.
-(rerunfilecheck)             Checksum: D32A3797983B74A1DF377F5BFB87B479;226.
+(rerunfilecheck)             Checksum: 19BBD7FB4FAE3E007A377EA8CC8A1477;337.
  ) 
 Here is how much of TeX's memory you used:
- 7359 strings out of 479485
- 108604 string characters out of 5875916
- 418595 words of memory out of 5000000
- 24192 multiletter control sequences out of 15000+600000
+ 7378 strings out of 479485
+ 108920 string characters out of 5875916
+ 420595 words of memory out of 5000000
+ 24208 multiletter control sequences out of 15000+600000
  553559 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 91i,12n,98p,912b,328s stack positions out of 5000i,500n,10000p,200000b,80000s
-{d:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/midterm_summary.pdf (4 pages, 302147 bytes).
+ 91i,12n,98p,936b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
+{d:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on c:/Users/user/PycharmProjects/Assignment.AMLXAI/hw2/report/midterm_summary.pdf (4 pages, 338516 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
+ 91 PDF objects out of 1000 (max. 8388607)
+ 63 compressed objects within 1 object stream
  15 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
