@@ -1,8 +1,4 @@
 import os
-import re
-from itertools import groupby
-
-import numpy as np
 
 import matplotlib.pyplot as plt
 
