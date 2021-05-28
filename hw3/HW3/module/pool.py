@@ -35,4 +35,3 @@ class MaxPool2d(torch.nn.MaxPool2d):
     def lrp(self, R, lrp_mode="simple"):
         R = self.simple_grad(R)
         return R
-

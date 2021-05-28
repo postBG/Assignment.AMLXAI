@@ -9,6 +9,5 @@ class Dropout2d(torch.nn.Dropout2d):
     def forward(self, input):
         return F.dropout2d(input, self.p, self.training, self.inplace)
 
-
     def lrp(self, R, lrp_mode="simple"):
         return R

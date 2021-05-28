@@ -2,57 +2,60 @@ import torch
 import matplotlib.pyplot as plt
 import skimage.transform
 
+
 def normalize(Xs):
-    mean = torch.tensor((0.485, 0.456, 0.406), dtype=torch.float32).reshape(1,3,1,1)
-    std =  torch.tensor((0.229, 0.224, 0.225), dtype=torch.float32).reshape(1,3,1,1)
-    return ((Xs - mean)/std).detach()
+    mean = torch.tensor((0.485, 0.456, 0.406), dtype=torch.float32).reshape(1, 3, 1, 1)
+    std = torch.tensor((0.229, 0.224, 0.225), dtype=torch.float32).reshape(1, 3, 1, 1)
+    return ((Xs - mean) / std).detach()
 
 
 def visualize_images(Xs, Ys, Y_hats, row, col=8):
-    plt.figure(figsize=(3*col,3*row))
+    plt.figure(figsize=(3 * col, 3 * row))
     for i, (x, y, y_hat) in enumerate(zip(Xs, Ys, Y_hats)):
-        plt.subplot(row, col, i+1)
-        plt.imshow(x.numpy().transpose(1,2,0))
+        plt.subplot(row, col, i + 1)
+        plt.imshow(x.numpy().transpose(1, 2, 0))
         plt.title(f'y= {labelname_list[y.item()]}\npred={labelname_list[y_hat.item()]}')
         plt.axis('off')
     plt.show()
-    
-    
+
+
 def visualize_interpretations(hs, row, col=8, absolute=False):
-    plt.figure(figsize=(3*col,3*row))
+    plt.figure(figsize=(3 * col, 3 * row))
     for i, h in enumerate(hs):
         if absolute:
             h = h.abs()
         h = h.sum(dim=0)
         h = h / (h.abs().max() + 1e-8)
-        h = (h + 1)/2
-        
-        plt.subplot(row, col, i+1)
+        h = (h + 1) / 2
+
+        plt.subplot(row, col, i + 1)
         plt.imshow(h.numpy(), cmap='seismic', vmin=0, vmax=1)
         plt.axis('off')
     plt.show()
-    
-    
+
+
 def load_data():
     val_dir = "/Data/ImageNet/Data/val"
     normalize = transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
     val_loader = torch.utils.data.DataLoader(
-                torchvision.datasets.ImageFolder(
-                    val_dir,
-                    transforms.Compose(
-                        [transforms.Resize(256), transforms.CenterCrop(224), transforms.ToTensor(),]
-                    ),
-                ),
-                batch_size=32,
-                shuffle=True,
-                num_workers=4,
-                pin_memory=True,
-            )
+        torchvision.datasets.ImageFolder(
+            val_dir,
+            transforms.Compose(
+                [transforms.Resize(256), transforms.CenterCrop(224), transforms.ToTensor(), ]
+            ),
+        ),
+        batch_size=32,
+        shuffle=True,
+        num_workers=4,
+        pin_memory=True,
+    )
     return next(iter(val_loader))
+
 
 def resize(h, width, height):
     h_resized = torch.from_numpy(skimage.transform.resize(h, (h.shape[0], h.shape[1], width, height)))
     return h_resized
+
 
 labelname_list = [
     "tench",

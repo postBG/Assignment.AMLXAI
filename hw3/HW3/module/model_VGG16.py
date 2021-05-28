@@ -11,13 +11,11 @@ from module.dropout import Dropout2d
 
 from torch.hub import load_state_dict_from_url
 
-
 __all__ = [
     "VGG",
     "vgg16",
     "vgg19",
 ]
-
 
 model_urls = {
     "vgg16": "https://download.pytorch.org/models/vgg16-397923af.pth",
@@ -52,7 +50,7 @@ class VGG(nn.Module):
         R = self.classifier.lrp(R, lrp_mode=lrp_mode)
         R = self.flatten.lrp(R, lrp_mode=lrp_mode)
         R = self.features.lrp(R, lrp_mode=lrp_mode)
-        
+
         return R
 
     def _initialize_weights(self):
@@ -100,8 +98,10 @@ def _vgg(arch, cfg, batch_norm, pretrained, progress, **kwargs):
         model.load_state_dict(state_dict)
     return model
 
+
 def vgg16(pretrained=False, progress=True, **kwargs):
     return _vgg("vgg16", "D", False, pretrained, progress, **kwargs)
+
 
 def vgg19(pretrained=False, progress=True, **kwargs):
     return _vgg("vgg19", "E", False, pretrained, progress, **kwargs)

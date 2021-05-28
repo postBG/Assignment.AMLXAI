@@ -20,7 +20,7 @@ class Linear(torch.nn.Linear):
     def _simple_lrp(self, R, eps=1e-2):
         ######################## Your answer should be in here #################
         # use eps = 1e-2
-        
+
         # dummy answer
         Rx = torch.zeros_like(self.input_tensor)
         ######################## Your answer should be in here #################

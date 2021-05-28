@@ -3,18 +3,19 @@ import torch
 from torch.nn import functional as F
 from torch.nn.modules.utils import _single, _pair, _triple
 
+
 class Conv2d(torch.nn.Conv2d):
     def __init__(
-        self,
-        in_channels,
-        out_channels,
-        kernel_size,
-        stride=1,
-        padding=0,
-        dilation=1,
-        groups=1,
-        bias=True,
-        padding_mode="zeros",
+            self,
+            in_channels,
+            out_channels,
+            kernel_size,
+            stride=1,
+            padding=0,
+            dilation=1,
+            groups=1,
+            bias=True,
+            padding_mode="zeros",
     ):
         super().__init__(
             in_channels, out_channels, kernel_size, stride, padding, dilation, groups, bias, padding_mode,

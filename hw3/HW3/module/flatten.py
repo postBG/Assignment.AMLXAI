@@ -12,8 +12,6 @@ class Flatten(torch.nn.Flatten):
         self.input_tensor = input
         return input.flatten(self.start_dim, self.end_dim)
 
-
     def lrp(self, R, lrp_mode="simple"):
         Rx = R.reshape(self.input_tensor.shape)
         return Rx
-
