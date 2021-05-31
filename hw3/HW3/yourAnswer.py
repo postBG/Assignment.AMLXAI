@@ -19,12 +19,18 @@ def simple_grad(model, x, y):
 
 
 def smooth_grad(model, x, y, n_iter=10, alpha=0.1):
-    ################### your answer should be written in here ################
-    # dummy answer
-    h = torch.zeros_like(x)
+    # Treat the alpha as the variance
+    model = copy.deepcopy(model)
+    x = copy.deepcopy(x)
 
-    ################### your answer should be written in here ################
-    return h.detach().cpu()
+    for i in range(n_iter):
+        noises = torch.randn_like(x) * alpha
+        logits = model(x + noises)
+        logits_y = torch.gather(logits, 1, torch.unsqueeze(y, 1))
+        logits_y.sum().backward()
+
+    h = x.grad.detach().cpu() / n_iter
+    return h
 
 
 def input_x_grad(model, x, y):
