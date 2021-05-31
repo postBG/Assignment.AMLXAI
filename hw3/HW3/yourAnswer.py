@@ -34,12 +34,8 @@ def smooth_grad(model, x, y, n_iter=10, alpha=0.1):
 
 
 def input_x_grad(model, x, y):
-    ################### your answer should be written in here ################
-    # dummy answer
-    h = torch.zeros_like(x)
-
-    ################### your answer should be written in here ################
-    return h.detach().cpu()
+    grad = simple_grad(model, x, y)
+    return x.detach().cpu() * grad
 
 
 def integrated_grad(model, x, y, x_b, n_iter=10):
