@@ -1,3 +1,5 @@
+import copy
+
 import torch
 
 '''
@@ -6,12 +8,14 @@ Hint: torch.autograd.grad function would be helpful to complete the following fu
 
 
 def simple_grad(model, x, y):
-    ################### your answer should be written in here ################
-    # dummy answer
-    h = torch.zeros_like(x)
+    model = copy.deepcopy(model)
+    x = copy.deepcopy(x)
 
-    ################### your answer should be written in here ################
-    return h.detach().cpu()
+    model.eval()
+    logits = model(x)
+    logits_y = torch.gather(logits, 1, torch.unsqueeze(y, 1))
+    logits_y.sum().backward()
+    return x.grad.detach().cpu()
 
 
 def smooth_grad(model, x, y, n_iter=10, alpha=0.1):
