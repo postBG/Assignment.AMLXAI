@@ -34,24 +34,6 @@ def visualize_interpretations(hs, row, col=8, absolute=False):
     plt.show()
 
 
-def load_data():
-    val_dir = "/Data/ImageNet/Data/val"
-    normalize = transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
-    val_loader = torch.utils.data.DataLoader(
-        torchvision.datasets.ImageFolder(
-            val_dir,
-            transforms.Compose(
-                [transforms.Resize(256), transforms.CenterCrop(224), transforms.ToTensor(), ]
-            ),
-        ),
-        batch_size=32,
-        shuffle=True,
-        num_workers=4,
-        pin_memory=True,
-    )
-    return next(iter(val_loader))
-
-
 def resize(h, width, height):
     h_resized = torch.from_numpy(skimage.transform.resize(h, (h.shape[0], h.shape[1], width, height)))
     return h_resized
