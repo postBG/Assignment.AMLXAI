@@ -39,11 +39,17 @@ def input_x_grad(model, x, y):
 
 
 def integrated_grad(model, x, y, x_b, n_iter=10):
-    ################### your answer should be written in here ################
-    # dummy answer
-    h = torch.zeros_like(x)
+    model = copy.deepcopy(model)
+    x = copy.deepcopy(x)
+    x_b = copy.deepcopy(x_b)
 
-    ################### your answer should be written in here ################
+    paths = [x_b + (i / n_iter) * (x - x_b) for i in range(n_iter + 1)]
+    for p in paths:
+        logits = model(p)
+        logits_y = torch.gather(logits, 1, torch.unsqueeze(y, 1))
+        logits_y.sum().backward()
+
+    h = (x - x_b) * x.grad
     return h.detach().cpu()
 
 
