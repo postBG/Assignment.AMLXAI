@@ -1,6 +1,7 @@
 import copy
 
 import torch
+import torch.nn.functional as F
 
 '''
 Hint: torch.autograd.grad function would be helpful to complete the following functions
@@ -10,8 +11,8 @@ Hint: torch.autograd.grad function would be helpful to complete the following fu
 def simple_grad(model, x, y):
     model = copy.deepcopy(model)
     x = copy.deepcopy(x)
-
     model.eval()
+
     logits = model(x)
     logits_y = torch.gather(logits, 1, torch.unsqueeze(y, 1))
     logits_y.sum().backward()
@@ -22,6 +23,7 @@ def smooth_grad(model, x, y, n_iter=10, alpha=0.1):
     # Treat the alpha as the variance
     model = copy.deepcopy(model)
     x = copy.deepcopy(x)
+    model.eval()
 
     for i in range(n_iter):
         noises = torch.randn_like(x) * alpha
@@ -42,6 +44,7 @@ def integrated_grad(model, x, y, x_b, n_iter=10):
     model = copy.deepcopy(model)
     x = copy.deepcopy(x)
     x_b = copy.deepcopy(x_b)
+    model.eval()
 
     paths = [x_b + (i / n_iter) * (x - x_b) for i in range(n_iter + 1)]
     for p in paths:
@@ -54,6 +57,10 @@ def integrated_grad(model, x, y, x_b, n_iter=10):
 
 
 def grad_cam(model, x, y):
+    model = copy.deepcopy(model)
+    x = copy.deepcopy(x)
+    model.eval()
+
     target_layer_output = []
 
     def save_activation():
@@ -63,16 +70,15 @@ def grad_cam(model, x, y):
         return hook
 
     layer, sub_layer = 'features', '28'
-    hook_handler = model.__dict__['_modules'][layer][int(sub_layer)].register_forward_hook(save_activation())
+    forward_hook_handler = model.__dict__['_modules'][layer][int(sub_layer)].register_forward_hook(save_activation())
 
-    ################### your answer should be written in here ################
-    # dummy answer
-    h = torch.zeros_like(x)
+    logits = model(x)
+    logits_y = torch.gather(logits, 1, torch.unsqueeze(y, 1))
+    grads = torch.autograd.grad(logits_y.sum(), target_layer_output)[0]
 
-    # hint : you would like to use function "torch.autograd.grad" to obtain
-    #        a gradient of target class logit wrt a feature map 
+    channel_weigths = torch.mean(grads, dim=(2, 3)).unsqueeze(2).unsqueeze(3)
+    h = F.relu(channel_weigths * grads)
 
-    ################### your answer should be written in here ################
-    hook_handler.remove()
+    forward_hook_handler.remove()
 
     return h.detach().cpu()
