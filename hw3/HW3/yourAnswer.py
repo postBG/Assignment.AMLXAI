@@ -77,8 +77,7 @@ def grad_cam(model, x, y):
     grads = torch.autograd.grad(logits_y.sum(), target_layer_output)[0]
 
     channel_weigths = torch.mean(grads, dim=(2, 3)).unsqueeze(2).unsqueeze(3)
-    h = F.relu(channel_weigths * grads)
-
+    h = F.relu(torch.mean(channel_weigths * target_layer_output[0], dim=1, keepdim=True))
     forward_hook_handler.remove()
 
     return h.detach().cpu()
