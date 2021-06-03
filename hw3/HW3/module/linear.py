@@ -1,5 +1,11 @@
+import copy
+
 import torch
 from torch.nn import functional as F
+
+
+def s(x):
+    return (x > 0).float() * 2 - 1
 
 
 class Linear(torch.nn.Linear):
@@ -18,13 +24,18 @@ class Linear(torch.nn.Linear):
         raise NameError(f"{lrp_mode} is not a valid lrp name")
 
     def _simple_lrp(self, R, eps=1e-2):
-        ######################## Your answer should be in here #################
-        # use eps = 1e-2
-
         # dummy answer
-        Rx = torch.zeros_like(self.input_tensor)
-        ######################## Your answer should be in here #################
-        return Rx
+        weight = copy.deepcopy(self.weight)
+        bias = copy.deepcopy(self.bias)
+        x = self.input_tensor
+
+        out = F.linear(x, weight, bias)
+        zs = out + s(out) * eps
+
+        R = R / zs
+        R_in = F.linear(R, weight.t(), bias=None)
+        R_in = R_in * x
+        return R_in.detach().cpu()
 
     def _composite_lrp(self, R):
         """
